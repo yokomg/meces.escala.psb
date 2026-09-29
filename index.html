@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Escala de MECES - Paróquia São Benedito RO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1e3a5f; --primary-600: #152a45; --primary-400: #2e5a8c;
+            --primary-soft: #e6eef7; --accent: #c9a227; --accent-soft: #faf1d6;
+            --accent-strong: #b8860b;
+            --bg: #f2f5f9; --bg-grad: radial-gradient(circle at 15% 0%, #e8eff8 0%, #f2f5f9 45%, #e6ecf3 100%);
+            --surface: #ffffff; --surface-2: #f7f9fc; --surface-3: #eef3f9;
+            --border: #dde5ef; --border-strong: #c5d3e3;
+            --text: #16283d; --text-soft: #4a5f78; --text-muted: #7a8fa6;
+            --success: #2e7d54; --success-soft: #e6f4ec;
+            --warning: #c9841a; --warning-soft: #fdf1dc;
+            --danger: #b3261e; --danger-soft: #fbe9e7;
+            --radius-xs: 8px; --radius-sm: 12px; --radius: 16px; --radius-lg: 22px; --radius-xl: 28px;
+            --shadow-sm: 0 2px 10px rgba(30, 58, 95, 0.07);
+            --shadow-md: 0 10px 28px rgba(30, 58, 95, 0.09);
+            --shadow-lg: 0 24px 60px rgba(30, 58, 95, 0.14);
+            --shadow-glow: 0 10px 28px rgba(30, 58, 95, 0.28);
+            --shadow-accent: 0 6px 18px rgba(201, 162, 39, 0.28);
+            --t-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+            --t-base: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        body.dark-mode {
+            --primary: #4a7db8; --primary-600: #3a6494; --primary-400: #6a9dd8;
+            --primary-soft: #1a2a3f; --bg: #0f1620;
+            --bg-grad: radial-gradient(circle at 15% 0%, #1a2434 0%, #0f1620 45%, #0a0f16 100%);
+            --surface: #182130; --surface-2: #1f2a3c; --surface-3: #26334a;
+            --border: #2a3a52; --border-strong: #3a4d6a;
+            --text: #e4ecf5; --text-soft: #b5c4d6; --text-muted: #8a9bb0;
+            --success: #4caf7d; --success-soft: #1b3a2a;
+            --warning: #e0a84a; --warning-soft: #3d2f14;
+            --danger: #e5534b; --danger-soft: #3d1a18;
+            --shadow-sm: 0 2px 10px rgba(0,0,0,0.35);
+            --shadow-md: 0 10px 28px rgba(0,0,0,0.45);
+            --shadow-lg: 0 24px 60px rgba(0,0,0,0.55);
+            --shadow-glow: 0 10px 28px rgba(74, 125, 184, 0.35);
+            --shadow-accent: 0 6px 18px rgba(224, 168, 74, 0.28);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-grad); background-attachment: fixed; min-height: 100vh; padding: 10px; font-size: 1rem; color: var(--text); transition: background 0.35s, color 0.35s; -webkit-font-smoothing: antialiased; }
+
+        /* ============ LOGIN ============ */
+        .login-screen { min-height: 100vh; display: flex; justify-content: center; align-items: center; background: var(--bg-grad); background-attachment: fixed; padding: 16px; }
+        .login-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 32px 24px 24px; width: 100%; max-width: 420px; box-shadow: var(--shadow-lg); text-align: center; position: relative; overflow: hidden; }
+        .login-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 50%, var(--primary) 100%); pointer-events: none; z-index: 0; }
+        .login-card .church-icon { width: 76px; height: 76px; margin: 0 auto 14px; border-radius: 50%; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-400) 100%); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: var(--shadow-glow); position: relative; z-index: 1; }
+        .login-card .church-icon::after { content: ''; position: absolute; inset: -8px; border-radius: 50%; border: 2px dashed var(--accent); pointer-events: none; z-index: -1; opacity: 0.4; }
+        .login-card h2 { font-size: 1.5rem; margin-bottom: 4px; font-weight: 800; color: var(--text); letter-spacing: -0.02em; position: relative; z-index: 1; }
+        .login-card h2::after { content: ''; display: block; width: 60px; height: 3px; background: var(--accent); margin: 10px auto 0; border-radius: 999px; }
+        .login-card .subtitle { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 22px; font-weight: 500; position: relative; z-index: 1; margin-top: 12px; }
+        .login-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 15px; margin: 8px 0; border: none; border-radius: var(--radius); font-size: 0.95rem; font-weight: 600; cursor: pointer; min-height: 52px; transition: transform var(--t-fast), box-shadow var(--t-base), background-color var(--t-base), filter var(--t-base); font-family: inherit; position: relative; z-index: 2; pointer-events: auto; }
+        .login-btn.admin { background: linear-gradient(135deg, #16283d 0%, #2e4560 100%); color: #fff; box-shadow: 0 8px 20px rgba(22, 40, 61, 0.25); }
+        .login-btn.coroinha { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-400) 100%); color: #fff; box-shadow: var(--shadow-glow); border: 2px solid var(--accent); }
+        .login-btn:hover:not(:disabled) { transform: translateY(-2px); filter: brightness(1.08); }
+        .login-btn:active:not(:disabled) { transform: translateY(0) scale(0.98); }
+        .login-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+        .login-input { width: 100%; padding: 15px 16px; border: 2px solid var(--border); border-radius: var(--radius); font-size: 0.95rem; margin-bottom: 10px; min-height: 52px; background: var(--surface-2); color: var(--text); font-family: inherit; transition: border-color var(--t-fast), background-color var(--t-fast), box-shadow var(--t-fast); position: relative; z-index: 2; }
+        .login-input::placeholder { color: var(--text-muted); }
+        .login-input:focus { outline: none; border-color: var(--accent); background: var(--surface); box-shadow: 0 0 0 4px rgba(201, 162, 39, 0.15); }
+        .login-input-group { margin-top: 8px; position: relative; z-index: 2; }
+        /* Toggle de senha */
+        .password-wrap { position: relative; width: 100%; }
+        .password-wrap .login-input { padding-right: 50px; }
+        .password-wrap .form-input { padding-right: 50px; }
+        .password-wrap .toggle-pwd { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: transparent; border: none; color: var(--text-muted); cursor: pointer; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 1.05rem; transition: background-color var(--t-fast), color var(--t-fast); z-index: 3; pointer-events: auto; margin-top: -3px; }
+        .password-wrap .toggle-pwd:hover { background: var(--accent-soft); color: var(--accent-strong); }
+        .password-wrap .toggle-pwd:active { transform: translateY(-50%) scale(0.92); }
+        .password-wrap .toggle-pwd i { pointer-events: none; }
+
+        /* ============ CONTAINER ============ */
+        .container { max-width: 560px; margin: 0 auto; background: var(--surface); border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); overflow: hidden; width: 100%; border: 1px solid var(--border); transition: background 0.35s, border-color 0.35s; }
+
+        /* ============ HEADER ============ */
+        .header { background: linear-gradient(180deg, var(--surface) 0%, var(--surface-2) 100%); padding: 14px 16px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; border-bottom: 2px solid var(--accent); position: relative; }
+        .header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent) 0%, var(--primary) 50%, var(--accent) 100%); pointer-events: none; z-index: 0; }
+        .logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; position: relative; z-index: 1; }
+        .logo i { font-size: 1.3rem; color: var(--accent); background: linear-gradient(135deg, var(--primary), var(--primary-400)); width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; border-radius: 12px; box-shadow: 0 4px 12px rgba(30, 58, 95, 0.3); border: 2px solid var(--accent); }
+        .logo h1 { font-size: 1.02rem; font-weight: 800; color: var(--text); white-space: nowrap; letter-spacing: -0.02em; }
+        .logo h1 span { color: var(--accent-strong); margin: 0 1px; }
+        .header-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; flex: 1; justify-content: flex-end; position: relative; z-index: 2; }
+        .user-badge { background: var(--accent-soft); padding: 6px 12px; border-radius: 999px; font-size: 0.75rem; font-weight: 600; color: var(--accent-strong); white-space: nowrap; max-width: 140px; overflow: hidden; text-overflow: ellipsis; display: inline-flex; align-items: center; gap: 5px; border: 1px solid rgba(201, 162, 39, 0.4); }
+        .user-badge i { color: var(--accent-strong); }
+        .user-badge.admin-badge { background: linear-gradient(135deg, #16283d, #2e4560); color: #fff; border-color: var(--accent); }
+        .user-badge.admin-badge i { color: var(--accent); }
+        .theme-toggle { background: var(--accent-soft); border: 1px solid var(--accent); font-size: 1.1rem; cursor: pointer; color: var(--accent-strong); padding: 4px; border-radius: 50%; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; transition: background-color var(--t-fast), color var(--t-fast), border-color var(--t-fast); pointer-events: auto; position: relative; z-index: 2; }
+        .theme-toggle:hover { background: var(--accent); color: #fff; }
+        .notification-badge { position: relative; display: inline-flex; align-items: center; z-index: 2; }
+
+        /* ============ BOTÕES ============ */
+        .btn { padding: 9px 14px; border: none; border-radius: var(--radius-sm); font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: transform var(--t-fast), box-shadow var(--t-base), background-color var(--t-base), filter var(--t-base); display: inline-flex; align-items: center; justify-content: center; gap: 6px; background: var(--surface-3); color: var(--text); min-height: 38px; min-width: 38px; white-space: nowrap; font-family: inherit; letter-spacing: 0.01em; pointer-events: auto; position: relative; z-index: 1; user-select: none; -webkit-user-select: none; }
+        .btn:hover:not(:disabled) { transform: translateY(-1px); box-shadow: var(--shadow-sm); }
+        .btn:active:not(:disabled) { transform: translateY(0) scale(0.97); }
+        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .btn-primary { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-400) 100%); color: #fff; box-shadow: 0 4px 14px rgba(30, 58, 95, 0.28); border: 2px solid var(--accent); }
+        .btn-success { background: linear-gradient(135deg, var(--success) 0%, #3fa06b 100%); color: #fff; box-shadow: 0 4px 14px rgba(46, 125, 84, 0.28); }
+        .btn-warning { background: linear-gradient(135deg, var(--accent) 0%, #e0b84a 100%); color: #5a4508; box-shadow: 0 4px 14px rgba(201, 162, 39, 0.35); font-weight: 700; }
+        .btn-danger { background: linear-gradient(135deg, var(--danger) 0%, #d4453d 100%); color: #fff; box-shadow: 0 4px 14px rgba(179, 38, 30, 0.28); }
+        .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
+        .btn-outline:hover:not(:disabled) { background: var(--primary-soft); }
+        .btn-accent { background: linear-gradient(135deg, var(--accent) 0%, #e0b84a 100%); color: #5a4508; box-shadow: var(--shadow-accent); font-weight: 700; }
+        .btn-sm { padding: 6px 11px; font-size: 0.75rem; min-height: 32px; min-width: 32px; border-radius: 10px; }
+        .btn-lg { padding: 14px 18px; font-size: 0.95rem; min-height: 50px; width: 100%; border-radius: var(--radius); }
+
+        /* ============ CONTEÚDO ============ */
+        .main-content { padding: 14px; }
+        .controls { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; position: relative; z-index: 1; }
+        .controls-top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+        .month-selector { display: flex; align-items: center; gap: 6px; flex: 1; min-width: 0; background: var(--accent-soft); padding: 6px; border-radius: var(--radius); border: 2px solid var(--accent); }
+        .month-selector .btn { padding: 8px 12px; min-height: 36px; min-width: 36px; font-size: 0.95rem; background: var(--surface); color: var(--primary); flex-shrink: 0; border: 1px solid var(--border); border-radius: 10px; }
+        .month-selector .btn:hover { background: var(--accent); color: #5a4508; border-color: var(--accent); }
+        .month-selector h2 { font-size: 1rem; color: var(--accent-strong); flex: 1; text-align: center; font-weight: 800; min-width: 0; line-height: 1.3; letter-spacing: -0.01em; text-transform: capitalize; }
+        #adminActions { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; justify-content: flex-end; width: 100%; position: relative; z-index: 1; }
+        #adminActions .btn { flex: 1 0 auto; min-width: 70px; font-size: 0.72rem; padding: 8px 10px; border-radius: 10px; }
+
+        /* ============ LISTA DE DIAS ============ */
+        .days-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+        .day-item { background: var(--surface); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; min-height: 60px; transition: transform var(--t-fast), border-color var(--t-fast), box-shadow var(--t-base); position: relative; overflow: hidden; pointer-events: auto; }
+        .day-item::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--border-strong); transition: background-color var(--t-fast), width var(--t-fast); pointer-events: none; z-index: 0; }
+        .day-item:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        .day-item:hover::before { background: var(--accent); width: 6px; }
+        .day-item.today { border-color: var(--accent); background: linear-gradient(90deg, var(--accent-soft) 0%, var(--surface) 60%); }
+        .day-item.today::before { background: var(--accent); width: 6px; }
+        .day-item.has-missa::before { background: var(--accent); }
+        .day-item .day-info { display: flex; flex-direction: column; flex: 1; min-width: 0; position: relative; z-index: 1; }
+        .day-item .day-number { font-size: 1.35rem; font-weight: 800; color: var(--text); line-height: 1.1; letter-spacing: -0.03em; }
+        .day-item.today .day-number { color: var(--accent-strong); }
+        .day-item .day-name { font-size: 0.72rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
+        .day-item .day-badges { display: flex; gap: 6px; align-items: center; flex-shrink: 0; position: relative; z-index: 1; flex-wrap: wrap; justify-content: flex-end; }
+
+        /* ============ BADGES ============ */
+        .badge { padding: 4px 12px; border-radius: 999px; font-size: 0.7rem; font-weight: 700; white-space: nowrap; display: inline-flex; align-items: center; gap: 4px; letter-spacing: 0.02em; }
+        .badge-confirmado { background: var(--success-soft); color: var(--success); border: 1px solid rgba(46, 125, 84, 0.25); }
+        .badge-pendente { background: var(--warning-soft); color: var(--warning); border: 1px solid rgba(201, 132, 26, 0.25); }
+        .badge-missa { background: var(--accent-soft); color: var(--accent-strong); border: 1px solid var(--accent); }
+        .badge-vazio { background: var(--surface-3); color: var(--text-muted); border: 1px solid var(--border); }
+        .badge-aviso { background: linear-gradient(135deg, var(--accent), #e0b84a); color: #5a4508; box-shadow: 0 3px 10px rgba(201, 162, 39, 0.35); font-weight: 800; }
+        .badge-acolito { background: linear-gradient(135deg, #c9a227, #e0be4a); color: #fff; box-shadow: 0 3px 10px rgba(201, 162, 39, 0.35); }
+        .badge-count { background: var(--accent); color: #5a4508; border: none; box-shadow: 0 3px 8px rgba(201, 162, 39, 0.4); font-weight: 800; }
+        .badge-count.full { background: linear-gradient(135deg, #e0a84a, #f0c96a); color: #5a4508; box-shadow: 0 3px 10px rgba(224, 168, 74, 0.5); }
+        .badge-cheio { background: linear-gradient(135deg, #b3261e, #d4453d); color: #fff; box-shadow: 0 3px 10px rgba(179, 38, 30, 0.35); font-weight: 800; }
+
+        /* ============ MODAL ============ */
+        .modal { display: none; position: fixed; inset: 0; width: 100%; height: 100%; background: rgba(15, 22, 32, 0.6); z-index: 1000; justify-content: center; align-items: center; padding: 14px; }
+        .modal.active { display: flex; }
+        .modal-content { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 20px; width: 100%; max-width: 500px; box-shadow: var(--shadow-lg); max-height: 92vh; overflow-y: auto; position: relative; z-index: 1; border-top: 4px solid var(--accent); }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 2px solid var(--accent-soft); padding-bottom: 12px; }
+        .modal-header h3 { font-size: 1.1rem; font-weight: 800; color: var(--text); letter-spacing: -0.02em; display: flex; align-items: center; gap: 8px; }
+        .modal-header h3 i { color: var(--accent); background: linear-gradient(135deg, var(--primary), var(--primary-400)); width: 32px; height: 32px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; font-size: 0.85rem; box-shadow: 0 4px 10px rgba(30, 58, 95, 0.28); border: 2px solid var(--accent); }
+        .modal-close { background: var(--accent-soft); border: none; font-size: 1.4rem; cursor: pointer; color: var(--accent-strong); width: 38px; height: 38px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; transition: background-color var(--t-fast), color var(--t-fast); line-height: 1; pointer-events: auto; position: relative; z-index: 2; }
+        .modal-close:hover { background: var(--accent); color: #fff; }
+
+        /* ============ MISSA ITEM ============ */
+        .missa-item { background: var(--surface-2); border-radius: var(--radius); padding: 16px; margin-bottom: 12px; border: 1px solid var(--border); border-left: 5px solid var(--accent); position: relative; z-index: 1; }
+        .missa-item:hover { box-shadow: var(--shadow-sm); }
+        .missa-item .missa-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
+        .missa-item .horario { font-weight: 800; font-size: 1.2rem; color: var(--primary); display: flex; align-items: center; gap: 6px; letter-spacing: -0.02em; }
+        .missa-item .horario i { color: var(--accent); font-size: 1rem; }
+        .missa-item .local { color: var(--text-muted); font-size: 0.85rem; margin-top: 3px; display: flex; align-items: center; gap: 6px; font-weight: 500; }
+        .missa-item .local i { color: var(--accent); font-size: 0.8rem; }
+        .missa-item .status { font-size: 0.85rem; margin-top: 8px; font-weight: 600; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+        .status-pendente { color: var(--warning); }
+        .status-confirmado { color: var(--success); }
+        .status-recusado { color: var(--danger); }
+        .missa-actions { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; position: relative; z-index: 2; }
+        .missa-actions .btn { flex: 1 0 auto; min-width: 64px; padding: 9px 12px; font-size: 0.78rem; min-height: 38px; }
+
+        /* ============ CONTADOR DE PESSOAS ============ */
+        .missa-counter { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; background: var(--accent-soft); border: 2px solid var(--accent); color: var(--accent-strong); font-weight: 800; font-size: 0.78rem; white-space: nowrap; box-shadow: 0 3px 8px rgba(201, 162, 39, 0.15); }
+        .missa-counter i { font-size: 0.85rem; }
+        .missa-counter .count-num { font-size: 1rem; color: var(--accent-strong); font-weight: 900; }
+        .missa-counter.full { background: linear-gradient(135deg, #fff3cd, #ffe9a8); border-color: #e0a84a; color: #7a5208; }
+        .missa-counter.full .count-num { color: #7a5208; }
+
+        /* Aviso de cheio */
+        .aviso-cheio { background: linear-gradient(135deg, #fff8e6 0%, #fff1cc 100%); border: 2px solid var(--accent); border-left: 5px solid #e0a84a; color: #7a5208; padding: 10px 14px; border-radius: var(--radius-sm); font-size: 0.82rem; font-weight: 600; line-height: 1.5; margin-top: 10px; display: flex; gap: 8px; align-items: flex-start; box-shadow: 0 4px 12px rgba(201, 162, 39, 0.15); }
+        .aviso-cheio i { font-size: 1.05rem; color: #e0a84a; margin-top: 1px; flex-shrink: 0; }
+
+        /* ============ TABELAS ============ */
+        .escala-wrapper { overflow-x: auto; border-radius: var(--radius-sm); }
+        .escala-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 0.75rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); margin-bottom: 16px; overflow: hidden; }
+        .escala-table th { background: var(--accent-soft); padding: 8px 6px; font-weight: 700; text-align: center; border-bottom: 2px solid var(--accent); color: var(--accent-strong); white-space: nowrap; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; }
+        .escala-table td { padding: 8px 6px; border-bottom: 1px solid var(--border); vertical-align: top; }
+        .escala-table tr:last-child td { border-bottom: none; }
+        .escala-table .nome { display: block; font-size: 0.72rem; line-height: 1.45; font-weight: 500; }
+        .escala-table .nome.pendente { color: var(--warning); font-style: italic; }
+        .escala-table .nome.recusado { color: var(--danger); text-decoration: line-through; opacity: 0.75; }
+        .escala-table .sem-coroinhas { color: var(--text-muted); font-style: italic; font-size: 0.7rem; }
+
+        .escala-header { text-align: center; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px dashed var(--accent); }
+        .escala-header h2 { font-size: 1.1rem; font-weight: 800; color: var(--text); letter-spacing: -0.02em; }
+        .escala-header h2::after { content: ''; display: block; width: 80px; height: 3px; background: var(--accent); margin: 8px auto 0; border-radius: 999px; }
+        .escala-header h3 { font-size: 0.9rem; font-weight: 700; color: var(--primary); margin-top: 8px; }
+        .escala-header .obs-text { font-size: 0.72rem; font-weight: 700; color: #7a5208; margin-top: 8px; padding: 6px 14px; background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 999px; display: inline-block; }
+
+        .secao-titulo { font-size: 1rem; font-weight: 800; color: var(--primary); border-bottom: 2px solid var(--accent); padding-bottom: 6px; margin: 20px 0 12px 0; letter-spacing: -0.01em; position: relative; }
+        .secao-titulo::before { content: ''; display: inline-block; width: 4px; height: 16px; background: var(--accent); border-radius: 2px; margin-right: 8px; vertical-align: -2px; }
+        .secao-subtitulo { font-size: 0.85rem; font-weight: 700; color: var(--accent-strong); margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+        .secao-subtitulo::before { content: '★'; color: var(--accent); }
+
+        .avisos-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 0.75rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); margin: 10px 0 16px 0; overflow: hidden; }
+        .avisos-table th { background: var(--accent-soft); padding: 8px 6px; font-weight: 700; text-align: center; border-bottom: 2px solid var(--accent); color: var(--accent-strong); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; }
+        .avisos-table td { padding: 8px 6px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+        .avisos-table tr:last-child td { border-bottom: none; }
+        .avisos-table .aviso-local { color: var(--text-muted); }
+
+        /* ============ SOLICITAÇÕES ============ */
+        .solicitacao-item { background: var(--surface-2); border-radius: var(--radius); padding: 12px 14px; margin-bottom: 10px; border: 1px solid var(--border); border-left: 4px solid var(--accent); }
+        .solicitacao-item .solicitante, .solicitacao-item .substituto, .solicitacao-item .justificativa { font-size: 0.85rem; margin: 3px 0; }
+        .solicitacao-item .solicitante strong, .solicitacao-item .substituto strong { color: var(--primary); }
+        .solicitacao-item .justificativa { color: var(--text-muted); font-style: italic; padding: 6px 10px; background: var(--accent-soft); border-radius: 10px; margin-top: 6px; }
+        .solicitacao-actions { margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap; position: relative; z-index: 2; }
+        .solicitacao-actions .btn { flex: 1; min-width: 60px; padding: 8px 10px; font-size: 0.75rem; min-height: 36px; }
+
+        /* ============ FORMULÁRIOS ============ */
+        .form-label { font-weight: 700; font-size: 0.8rem; color: var(--primary); display: block; margin-top: 12px; margin-bottom: 4px; letter-spacing: 0.01em; }
+        .form-input, .form-textarea { width: 100%; padding: 13px 14px; border: 2px solid var(--border); border-radius: var(--radius-sm); font-size: 0.9rem; margin: 2px 0 6px; min-height: 48px; background: var(--surface-2); color: var(--text); font-family: inherit; transition: border-color var(--t-fast), background-color var(--t-fast), box-shadow var(--t-fast); position: relative; z-index: 2; }
+        .form-input::placeholder, .form-textarea::placeholder { color: var(--text-muted); }
+        .form-input:focus, .form-textarea:focus { outline: none; border-color: var(--accent); background: var(--surface); box-shadow: 0 0 0 4px rgba(201, 162, 39, 0.15); }
+        .form-textarea { min-height: 80px; resize: vertical; }
+        .form-hint { font-size: 0.72rem; color: var(--text-muted); margin-top: -2px; margin-bottom: 8px; }
+        select.form-input { cursor: pointer; }
+
+        /* ============ TOAST ============ */
+        .toast-container { position: fixed; top: 12px; left: 12px; right: 12px; z-index: 2000; display: flex; flex-direction: column; align-items: center; gap: 8px; pointer-events: none; }
+        .toast { background: var(--surface); border-radius: var(--radius); padding: 13px 16px; box-shadow: var(--shadow-lg); display: flex; align-items: center; gap: 10px; font-size: 0.88rem; width: 100%; max-width: 420px; font-weight: 600; border: 1px solid var(--border); border-top: 3px solid var(--accent); pointer-events: auto; animation: slideDown 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); color: var(--text); }
+        .toast.success { border-left: 4px solid var(--success); }
+        .toast.success i { color: var(--success); }
+        .toast.error { border-left: 4px solid var(--danger); }
+        .toast.error i { color: var(--danger); }
+        .toast.info { border-left: 4px solid var(--accent); }
+        .toast.info i { color: var(--accent-strong); }
+        .toast i { font-size: 1.1rem; }
+        @keyframes slideDown { from { transform: translateY(-24px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+        /* ============ ESTADOS ============ */
+        .empty-state { text-align: center; padding: 32px 16px; color: var(--text-muted); }
+        .empty-state i { font-size: 2.8rem; margin-bottom: 12px; color: var(--accent); opacity: 0.8; display: block; }
+        .empty-state p { font-size: 0.9rem; font-weight: 500; }
+        .debug-info { background: var(--accent-soft); padding: 10px 14px; border-radius: var(--radius-sm); font-size: 0.78rem; color: var(--accent-strong); margin-top: 14px; width: 100%; word-break: break-word; font-weight: 600; border: 1px solid var(--accent); position: relative; z-index: 2; }
+        .debug-error { background: var(--danger-soft); color: var(--danger); padding: 10px 14px; border-radius: var(--radius-sm); font-size: 0.78rem; margin-top: 14px; width: 100%; word-break: break-word; border: 1px solid rgba(179, 38, 30, 0.25); font-weight: 500; }
+        .debug-success { background: var(--success-soft); color: var(--success); padding: 10px 14px; border-radius: var(--radius-sm); font-size: 0.78rem; margin-top: 14px; width: 100%; word-break: break-word; border: 1px solid rgba(46, 125, 84, 0.25); font-weight: 500; }
+        .legenda { text-align: center; font-size: 0.72rem; color: var(--text-muted); padding: 12px 4px 4px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; font-weight: 500; }
+        .legenda > span { display: inline-flex; align-items: center; gap: 5px; }
+        .legenda .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; flex-shrink: 0; box-shadow: 0 0 0 2px var(--surface); }
+        .loading { text-align: center; padding: 32px; color: var(--primary); font-size: 0.9rem; font-weight: 600; }
+        .loading::before { content: ''; display: inline-block; width: 16px; height: 16px; border: 2px solid var(--accent-soft); border-top-color: var(--accent); border-radius: 50%; margin-right: 8px; vertical-align: -3px; animation: spin 0.7s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .modal-content::-webkit-scrollbar, .escala-wrapper::-webkit-scrollbar { width: 8px; height: 8px; }
+        .modal-content::-webkit-scrollbar-thumb, .escala-wrapper::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 999px; }
+        .modal-content::-webkit-scrollbar-track, .escala-wrapper::-webkit-scrollbar-track { background: transparent; }
+
+        @media (max-width: 480px) {
+            html { font-size: 17px; }
+            body { padding: 6px; }
+            .header { padding: 10px 12px; }
+            .user-badge { font-size: 0.68rem; max-width: 100px; padding: 5px 9px; }
+            .logo h1 { font-size: 0.92rem; }
+            .logo i { width: 34px; height: 34px; font-size: 1.15rem; }
+            .btn-sm { font-size: 0.68rem; padding: 5px 9px; min-height: 30px; }
+            .escala-table { font-size: 0.62rem; }
+            .escala-table th, .escala-table td { padding: 5px 3px; }
+            .modal-content { padding: 16px; border-radius: var(--radius-lg); }
+            .login-card { padding: 26px 18px 20px; }
+            .login-card h2 { font-size: 1.3rem; }
+            .missa-item .horario { font-size: 1.1rem; }
+            .missa-counter { font-size: 0.72rem; padding: 5px 10px; }
+            .missa-counter .count-num { font-size: 0.9rem; }
+        }
+        @media print {
+            body { background: #fff !important; padding: 0; color: #000; }
+            .header, .controls, .days-list, .legenda, #adminActions, .theme-toggle, .btn,
+            .notification-badge, #btnLogout, .modal-close, .toast-container, .no-print { display: none !important; }
+            .container { box-shadow: none; border: none; border-radius: 0; max-width: 100%; }
+            .modal { position: relative; background: none; padding: 0; }
+            .modal.active { display: block !important; }
+            .modal-content { box-shadow: none; max-height: none; padding: 0; border: none; }
+            .escala-table th, .escala-table td, .avisos-table th, .avisos-table td { border: 1px solid #ccc; }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-screen" id="loginScreen">
+        <div class="login-card">
+            <div class="church-icon"><i class="fas fa-church"></i></div>
+            <h2>Escala de MECES</h2>
+            <p class="subtitle">Paróquia São Benedito</p>
+            <button class="login-btn admin" id="btnAdminLogin"><i class="fas fa-lock"></i> Administrador</button>
+            <button class="login-btn coroinha" id="btnCoroinhaLogin"><i class="fas fa-user"></i> Sou Ministro(a)</button>
+
+            <div id="loginAdminForm" style="display:none;" class="login-input-group">
+                <div class="password-wrap">
+                    <input type="password" id="senhaAdmin" class="login-input" placeholder="Digite a senha do administrador">
+                    <button type="button" class="toggle-pwd" data-target="senhaAdmin" aria-label="Mostrar senha"><i class="fas fa-eye"></i></button>
+                </div>
+                <button class="login-btn admin" id="btnLoginAdmin"><i class="fas fa-sign-in-alt"></i> Entrar como Admin</button>
+                <button class="login-btn" id="btnCancelAdmin" style="background:var(--surface-3); color:var(--text);"><i class="fas fa-times"></i> Cancelar</button>
+            </div>
+
+            <div id="loginCoroinhaForm" style="display:none;" class="login-input-group">
+                <input type="text" id="nomeCoroinhaLogin" class="login-input" placeholder="Digite seu nome">
+                <div class="password-wrap">
+                    <input type="password" id="senhaCoroinhaLogin" class="login-input" placeholder="Digite uma senha (mín. 4 letras)">
+                    <button type="button" class="toggle-pwd" data-target="senhaCoroinhaLogin" aria-label="Mostrar senha"><i class="fas fa-eye"></i></button>
+                </div>
+                <div class="form-hint" style="text-align:left; margin:-2px 4px 10px; padding:10px 12px; background:var(--accent-soft); border:1px solid var(--accent); border-radius:10px; color:#7a5208; font-weight:600; line-height:1.5; display:flex; gap:8px; align-items:flex-start;">
+                    <i class="fas fa-info-circle" style="margin-top:2px; color:var(--accent-strong);"></i>
+                    <span><strong>Primeiro acesso?</strong> Digite seu nome e escolha uma senha de pelo menos 4 letras — sua conta será criada automaticamente. Depois troque a senha no botão <strong>"Senha"</strong>.<br><em style="font-size:0.88em; opacity:0.85;">Toque no 👁️ para ver o que digitou.</em></span>
+                </div>
+                <button class="login-btn coroinha" id="btnLoginCoroinha"><i class="fas fa-sign-in-alt"></i> Entrar</button>
+                <button class="login-btn" id="btnCancelCoroinha" style="background:var(--surface-3); color:var(--text);"><i class="fas fa-times"></i> Cancelar</button>
+            </div>
+
+            <div id="statusMessage" class="debug-info">🔄 Inicializando...</div>
+        </div>
+    </div>
+
+    <div class="container" id="mainSystem" style="display:none;">
+        <header class="header">
+            <div class="logo"><i class="fas fa-church"></i><h1>Escala <span>·</span> MECES</h1></div>
+            <div class="header-actions">
+                <span class="user-badge" id="userBadge"></span>
+                <button class="btn btn-sm btn-warning" id="btnAlterarSenha"><i class="fas fa-key"></i> Senha</button>
+                <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema"><i class="fas fa-moon"></i></button>
+                <div id="adminNotificationBtn" style="display:none;" class="notification-badge">
+                    <button class="btn btn-sm btn-warning" id="btnVerSolicitacoes"><i class="fas fa-exchange-alt"></i> <span id="solicitacoesCount">0</span></button>
+                </div>
+                <button class="btn btn-sm btn-outline" id="btnLogout"><i class="fas fa-sign-out-alt"></i> Sair</button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="controls">
+                <div class="controls-top">
+                    <div class="month-selector">
+                        <button class="btn btn-sm" id="prevMonth"><i class="fas fa-chevron-left"></i></button>
+                        <h2 id="currentMonth">Carregando...</h2>
+                        <button class="btn btn-sm" id="nextMonth"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                <div id="adminActions" style="display:none;">
+                    <button class="btn btn-success" id="gerarRelatorioBtn"><i class="fas fa-file-alt"></i> Relatório</button>
+                    <button class="btn btn-warning" id="gerenciarPeriodoBtn"><i class="fas fa-calendar-alt"></i> Inscrições</button>
+                    <button class="btn btn-danger" id="limparTudoBtn"><i class="fas fa-trash"></i> Limpar</button>
+                    <button class="btn btn-primary" id="gerenciarCoroinhasBtn"><i class="fas fa-users-cog"></i> Gerenciar</button>
+                </div>
+            </div>
+            <div class="days-list" id="daysList"><div class="loading">Carregando dias...</div></div>
+            <div class="legenda">
+                <span><span class="dot" style="background:#2e7d54;"></span> Confirmado</span>
+                <span><span class="dot" style="background:#c9a227;"></span> Pendente / Aviso</span>
+                <span><span class="dot" style="background:#b3261e;"></span> Recusado</span>
+                <span><span class="dot" style="background:#1e3a5f;"></span> Missa</span>
+                <span><span class="dot" style="background:#c5d3e3;"></span> Vazio</span>
+            </div>
+        </main>
+    </div>
+
+    <div class="modal" id="dayModal"><div class="modal-content" style="max-width: 700px;"><div class="modal-header"><h3 id="modalDayTitle"><i class="fas fa-calendar-alt"></i> Dia</h3><button class="modal-close" id="modalCloseBtn">&times;</button></div><div id="modalDayContent"></div></div></div>
+
+    <div class="modal" id="solicitacaoModal"><div class="modal-content"><div class="modal-header"><h3><i class="fas fa-exchange-alt"></i> Solicitar Troca/Substituição</h3><button class="modal-close" id="solicitacaoModalClose">&times;</button></div><div id="solicitacaoModalContent"></div></div></div>
+
+    <div class="modal" id="listaSolicitacoesModal"><div class="modal-content"><div class="modal-header"><h3><i class="fas fa-list"></i> Solicitações</h3><button class="modal-close" id="listaSolicitacoesModalClose">&times;</button></div><div id="listaSolicitacoesContent"></div></div></div>
+
+    <div class="modal" id="viewScaleModal">
+        <div class="modal-content" style="max-width: 1100px;">
+            <div class="modal-header"><h3><i class="fas fa-calendar-alt"></i> Relatório do Mês</h3><button class="modal-close" id="viewScaleModalClose">&times;</button></div>
+            <div id="viewScaleContent"></div>
+            <div style="margin-top:14px; display:flex; gap:8px; flex-wrap:wrap;" class="no-print">
+                <button class="btn btn-primary" id="printScaleBtn" style="flex:1;"><i class="fas fa-print"></i> Imprimir</button>
+                <button class="btn btn-outline" id="closeViewScaleBtn" style="flex:1;"><i class="fas fa-times"></i> Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="gerenciarCoroinhasModal">
+        <div class="modal-content" style="max-width: 700px;">
+            <div class="modal-header"><h3><i class="fas fa-users-cog"></i> Gerenciar Ministros</h3><button class="modal-close" id="gerenciarCoroinhasModalClose">&times;</button></div>
+            <div id="gerenciarCoroinhasContent"></div>
+        </div>
+    </div>
+
+    <div class="modal" id="addManualModal">
+        <div class="modal-content" style="max-width: 440px;">
+            <div class="modal-header"><h3><i class="fas fa-user-plus"></i> Adicionar à Escala</h3><button class="modal-close" id="addManualModalClose">&times;</button></div>
+            <div id="addManualContent"></div>
+        </div>
+    </div>
+
+    <div class="modal" id="gerenciarPeriodoModal">
+        <div class="modal-content" style="max-width: 450px;">
+            <div class="modal-header"><h3><i class="fas fa-calendar-alt"></i> Período de Inscrições</h3><button class="modal-close" id="gerenciarPeriodoModalClose">&times;</button></div>
+            <div id="gerenciarPeriodoContent">
+                <div id="statusPeriodo" style="margin-bottom:14px; padding:12px; border-radius:var(--radius-sm); background:var(--accent-soft); border:2px solid var(--accent); text-align:center; font-weight:700; font-size:0.9rem; color:var(--accent-strong);">Carregando...</div>
+                <form id="formPeriodo">
+                    <div class="form-label">Data de início</div>
+                    <input type="date" id="periodoInicio" class="form-input" required>
+                    <div class="form-label">Data de fim</div>
+                    <input type="date" id="periodoFim" class="form-input" required>
+                    <div class="form-hint">Deixe em branco para desativar o período.</div>
+                    <button type="submit" class="btn btn-primary btn-lg" style="margin-top:10px;"><i class="fas fa-save"></i> Salvar período</button>
+                    <button type="button" class="btn btn-danger btn-lg" id="btnDesativarPeriodo" style="margin-top:8px;"><i class="fas fa-times-circle"></i> Desativar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="alterarSenhaModal">
+        <div class="modal-content" style="max-width: 420px;">
+            <div class="modal-header"><h3><i class="fas fa-key"></i> Alterar Senha</h3><button class="modal-close" id="alterarSenhaModalClose">&times;</button></div>
+            <div id="alterarSenhaContent">
+                <form id="formAlterarSenha">
+                    <div class="form-label">Senha atual</div>
+                    <div class="password-wrap">
+                        <input type="password" id="senhaAtual" class="form-input" placeholder="Digite sua senha atual" required>
+                        <button type="button" class="toggle-pwd" data-target="senhaAtual" aria-label="Mostrar senha"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <div class="form-label">Nova senha</div>
+                    <div class="password-wrap">
+                        <input type="password" id="novaSenha" class="form-input" placeholder="Nova senha (mínimo 4 caracteres)" required minlength="4">
+                        <button type="button" class="toggle-pwd" data-target="novaSenha" aria-label="Mostrar senha"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <div class="form-label">Confirmar nova senha</div>
+                    <div class="password-wrap">
+                        <input type="password" id="confirmarSenha" class="form-input" placeholder="Confirme a nova senha" required>
+                        <button type="button" class="toggle-pwd" data-target="confirmarSenha" aria-label="Mostrar senha"><i class="fas fa-eye"></i></button>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg" style="margin-top:10px;"><i class="fas fa-save"></i> Salvar nova senha</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script>
+        // ============ LIMITE DE PESSOAS POR MISSA ============
+        const LIMITE_MISSA = 5;
+
+        (function initTheme() {
+            const stored = localStorage.getItem('theme_preference_meces');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const isDark = stored === 'dark' || (stored === null && prefersDark);
+            if (isDark) {
+                document.body.classList.add('dark-mode');
+                const icon = document.querySelector('#themeToggle i');
+                if (icon) icon.className = 'fas fa-sun';
+            }
+        })();
+        function toggleTheme() {
+            const icon = document.querySelector('#themeToggle i');
+            const isDark = document.body.classList.toggle('dark-mode');
+            icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+            localStorage.setItem('theme_preference_meces', isDark ? 'dark' : 'light');
+        }
+
+        const SUPABASE_URL = 'https://ahbjfooldmzpykvjzxgg.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFoYmpmb29sZG16cHlrdmp6eGdnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA3MDI4NDQsImV4cCI6MjEwNjI3ODg0NH0.hRRONV4QvSU6VQ3dBEdhsTIFJBUpjs0hF6LCGSnV50A';
+
+        function escapeHtml(s) {
+            return String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+        }
+        function ordenarPorAcolito(escalas, mapaAcolitos) {
+            return [...escalas].sort((a, b) => {
+                const aAc = mapaAcolitos[String(a.coroinha_id)] ? 1 : 0;
+                const bAc = mapaAcolitos[String(b.coroinha_id)] ? 1 : 0;
+                if (aAc !== bAc) return bAc - aAc;
+                return (a.coroinha_nome || '').localeCompare(b.coroinha_nome || '');
+            });
+        }
+        function iconeAcolito(mapaAcolitos, coroinhaId) {
+            return mapaAcolitos[String(coroinhaId)] ? '<i class="fas fa-hands-praying" style="color:#c9a227; margin-right:4px;" title="Acólito Extraordinário"></i>' : '';
+        }
+        function getSessionToken() { return localStorage.getItem('admin_token_meces') || localStorage.getItem('meces_token') || ''; }
+        function buildHeaders() {
+            const h = { 'apikey': SUPABASE_ANON_KEY, 'Authorization': `Bearer ${SUPABASE_ANON_KEY}`, 'Content-Type': 'application/json', 'Prefer': 'return=representation' };
+            const tok = getSessionToken();
+            if (tok) h['x-coroinha-token'] = tok;
+            return h;
+        }
+        function contarPessoasNaMissa(escalasDoDia, horario, local) {
+            return escalasDoDia.filter(e =>
+                e.horario === horario &&
+                (e.local || '') === (local || '') &&
+                e.status !== 'recusado'
+            ).length;
+        }
+
+        // Toggle de senha
+        function togglePasswordVisibility(btn) {
+            const target = btn.dataset.target;
+            const input = document.getElementById(target);
+            if (!input) return;
+            const isText = input.type === 'text';
+            input.type = isText ? 'password' : 'text';
+            const icon = btn.querySelector('i');
+            if (icon) icon.className = isText ? 'fas fa-eye' : 'fas fa-eye-slash';
+            input.focus();
+            try { input.setSelectionRange(input.value.length, input.value.length); } catch (e) {}
+        }
+        document.addEventListener('click', function(e) {
+            const btn = e.target.closest('.toggle-pwd');
+            if (!btn) return;
+            e.preventDefault();
+            e.stopPropagation();
+            togglePasswordVisibility(btn);
+        });
+
+        const API = {
+            async get(table, params = {}) {
+                let url = `${SUPABASE_URL}/rest/v1/${table}?select=*`;
+                if (params.chave) url += `&chave=eq.${params.chave}`;
+                if (params.mes) url += `&mes=eq.${params.mes}`;
+                if (params.ano) url += `&ano=eq.${params.ano}`;
+                if (params.id) url += `&id=eq.${params.id}`;
+                if (params.data_escala) url += `&data_escala=eq.${params.data_escala}`;
+                if (params.status) url += `&status=eq.${params.status}`;
+                if (params.usuario_id) url += `&usuario_id=eq.${params.usuario_id}`;
+                if (params.lida) url += `&lida=eq.${params.lida}`;
+                const response = await fetch(url, { headers: { ...buildHeaders(), 'Cache-Control': 'no-cache, no-store, must-revalidate' } });
+                if (!response.ok) throw new Error(`Erro ${response.status}: ${await response.text()}`);
+                return await response.json();
+            },
+            async post(table, data) {
+                const response = await fetch(`${SUPABASE_URL}/rest/v1/${table}`, { method: 'POST', headers: { ...buildHeaders(), 'Prefer': 'return=representation' }, body: JSON.stringify(data) });
+                if (!response.ok) throw new Error(`Erro ${response.status}: ${await response.text()}`);
+                const result = await response.json();
+                return result[0] || result;
+            },
+            async patch(table, id, data) {
+                const response = await fetch(`${SUPABASE_URL}/rest/v1/${table}?id=eq.${id}`, { method: 'PATCH', headers: { ...buildHeaders(), 'Prefer': 'return=representation' }, body: JSON.stringify(data) });
+                if (!response.ok) throw new Error(`Erro ${response.status}: ${await response.text()}`);
+                const result = await response.json();
+                return result[0] || result;
+            },
+            async delete(table, id) {
+                const response = await fetch(`${SUPABASE_URL}/rest/v1/${table}?id=eq.${id}`, { method: 'DELETE', headers: { ...buildHeaders(), 'Prefer': 'return=representation' } });
+                if (!response.ok) throw new Error(`Erro ${response.status}: ${await response.text()}`);
+                return true;
+            },
+            async deleteByData(table, dataEscala) {
+                const response = await fetch(`${SUPABASE_URL}/rest/v1/${table}?data_escala=eq.${dataEscala}`, { method: 'DELETE', headers: { ...buildHeaders(), 'Prefer': 'return=representation' } });
+                if (!response.ok) throw new Error(`Erro ${response.status}: ${await response.text()}`);
+                return true;
+            },
+            async rpc(fn, params = {}) {
+                const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/${fn}`, { method: 'POST', headers: buildHeaders(), body: JSON.stringify(params) });
+                if (!response.ok) throw new Error(`Erro ${response.status}: ${await response.text()}`);
+                return await response.json();
+            }
+        };
+
+        const DB = {
+            async getCoroinhas() { return await API.get('coroinhas'); },
+            async updateCoroinha(id, updates) { return await API.patch('coroinhas', id, updates); },
+            async deleteCoroinha(id) { return await API.delete('coroinhas', id); },
+            async getHorarios() { return await API.get('horarios'); },
+            async getEscalas(mes, ano) { return await API.get('escalas', { mes, ano }); },
+            async createEscala(e) {
+                return await API.post('escalas', {
+                    mes: e.mes, ano: e.ano, data_escala: e.data_escala, horario: e.horario, local: e.local || '',
+                    coroinha_id: e.coroinha_id, coroinha_nome: e.coroinha_nome,
+                    status: e.status || 'pendente', funcao: e.funcao || 'MECES'
+                });
+            },
+            async updateEscala(id, updates) { return await API.patch('escalas', id, updates); },
+            async deleteEscala(id) { return await API.delete('escalas', id); },
+            async deleteEscalasByData(d) { return await API.deleteByData('escalas', d); },
+            async getAvisos(dataEscala, horario, local) {
+                const p = {};
+                if (dataEscala) p.data_escala = dataEscala;
+                if (horario) p.horario = horario;
+                if (local) p.local = local;
+                return await API.get('avisos', p);
+            },
+            async getAllAvisos() { return await API.get('avisos'); },
+            async createAviso(data) { return await API.post('avisos', data); },
+            async deleteAviso(id) { return await API.delete('avisos', id); },
+            async getSolicitacoes(status) { return await API.get('solicitacoes_troca', status ? { status } : {}); },
+            async createSolicitacao(data) { return await API.post('solicitacoes_troca', data); },
+            async updateSolicitacao(id, updates) { return await API.patch('solicitacoes_troca', id, updates); },
+            async getNotificacoesNaoLidas(uid) { return await API.get('notificacoes', { usuario_id: uid, lida: false }); },
+            async createNotificacao(data) { return await API.post('notificacoes', data); },
+            async marcarNotificacaoLida(id) { return await API.patch('notificacoes', id, { lida: true }); },
+            async getConfig(chave) {
+                try { const r = await API.get('configuracoes', { chave }); return r.length > 0 ? r[0] : null; }
+                catch (e) { if (e.message.includes('PGRST205')) return null; throw e; }
+            },
+            async upsertConfig(chave, valor) {
+                try {
+                    const ex = await this.getConfig(chave);
+                    if (ex) return await API.patch('configuracoes', ex.id, { valor });
+                    return await API.post('configuracoes', { chave, valor });
+                } catch (e) {
+                    if (e.message.includes('PGRST205')) { showToast('❌ Tabela "configuracoes" não existe. Rode o SQL.', 'error'); throw new Error('Tabela configuracoes não encontrada.'); }
+                    throw e;
+                }
+            }
+        };
+
+        let currentUser = null;
+        let currentDate = new Date();
+        let coroinhaAtual = null;
+        let isAdmin = false;
+        let supabaseReady = false;
+        let periodoInscricao = null;
+
+        async function testConnection() {
+            const statusMsg = document.getElementById('statusMessage');
+            try {
+                await API.get('horarios');
+                statusMsg.className = 'debug-success';
+                statusMsg.textContent = '✅ Conectado ao Supabase!';
+                supabaseReady = true;
+                document.querySelectorAll('.login-btn').forEach(b => b.disabled = false);
+                return true;
+            } catch (e) {
+                statusMsg.className = 'debug-error';
+                statusMsg.textContent = '❌ Erro ao conectar: ' + e.message;
+                supabaseReady = false;
+                return false;
+            }
+        }
+
+        async function carregarPeriodoInscricao() {
+            try {
+                const config = await DB.getConfig('periodo_inscricao');
+                if (config && config.valor) {
+                    const v = typeof config.valor === 'string' ? JSON.parse(config.valor) : config.valor;
+                    const ok = v && typeof v.inicio === 'string' && typeof v.fim === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(v.inicio) && /^\d{4}-\d{2}-\d{2}$/.test(v.fim);
+                    periodoInscricao = ok ? v : null;
+                } else periodoInscricao = null;
+            } catch (e) { periodoInscricao = null; }
+        }
+        function verificarPeriodoAtivo() {
+            if (!periodoInscricao || !periodoInscricao.inicio || !periodoInscricao.fim) return false;
+            const h = new Date();
+            return h >= new Date(periodoInscricao.inicio + 'T00:00:00') && h <= new Date(periodoInscricao.fim + 'T23:59:59');
+        }
+        function getStatusPeriodoTexto() {
+            if (!periodoInscricao || !periodoInscricao.inicio || !periodoInscricao.fim)
+                return { texto: '🔒 Inscrições fechadas', corBg: '#f8d7da', corTexto: '#721c24' };
+            if (verificarPeriodoAtivo())
+                return { texto: '✅ Inscrições abertas', corBg: '#d4edda', corTexto: '#155724' };
+            return { texto: '⏳ Fora das datas', corBg: '#fff3cd', corTexto: '#856404' };
+        }
+
+        async function verificarNotificacoes() {
+            if (!coroinhaAtual) return;
+            try {
+                const nots = await DB.getNotificacoesNaoLidas(coroinhaAtual.id);
+                for (const n of nots) { showToast(n.mensagem, 'info'); await DB.marcarNotificacaoLida(n.id); }
+            } catch (e) { console.warn(e); }
+        }
+
+        function showAdminLogin() {
+            document.getElementById('loginAdminForm').style.display = 'block';
+            document.getElementById('loginCoroinhaForm').style.display = 'none';
+            document.getElementById('btnAdminLogin').style.display = 'none';
+            document.getElementById('btnCoroinhaLogin').style.display = 'none';
+            document.getElementById('senhaAdmin').focus();
+        }
+        function showCoroinhaLogin() {
+            document.getElementById('loginCoroinhaForm').style.display = 'block';
+            document.getElementById('loginAdminForm').style.display = 'none';
+            document.getElementById('btnAdminLogin').style.display = 'none';
+            document.getElementById('btnCoroinhaLogin').style.display = 'none';
+            document.getElementById('nomeCoroinhaLogin').focus();
+        }
+        function hideLoginForms() {
+            document.getElementById('loginAdminForm').style.display = 'none';
+            document.getElementById('loginCoroinhaForm').style.display = 'none';
+            document.getElementById('btnAdminLogin').style.display = 'block';
+            document.getElementById('btnCoroinhaLogin').style.display = 'block';
+        }
+
+        async function loginAdmin() {
+            try {
+                if (!supabaseReady) { showToast('Aguardando conexão...', 'error'); return; }
+                const senha = document.getElementById('senhaAdmin').value;
+                if (!senha) { showToast('Digite a senha.', 'error'); return; }
+                const rows = await API.rpc('login_admin', { p_senha: senha });
+                if (!rows || rows.length === 0 || !rows[0].token) {
+                    showToast('Senha incorreta.', 'error');
+                    document.getElementById('senhaAdmin').value = '';
+                    document.getElementById('senhaAdmin').focus();
+                    return;
+                }
+                localStorage.setItem('admin_token_meces', rows[0].token);
+                localStorage.removeItem('meces_token');
+                isAdmin = true;
+                currentUser = { id: 'admin', nome: 'Administrador' };
+                await entrarSistema();
+            } catch (e) { console.error(e); showToast('Erro: ' + e.message, 'error'); }
+        }
+
+        async function loginCoroinha() {
+            try {
+                if (!supabaseReady) { showToast('Aguardando conexão...', 'error'); return; }
+                const nome = document.getElementById('nomeCoroinhaLogin').value.trim();
+                const senha = document.getElementById('senhaCoroinhaLogin').value;
+                if (!nome || !senha) { showToast('Preencha nome e senha.', 'error'); return; }
+
+                let rows;
+                try {
+                    rows = await API.rpc('login_ou_criar_coroinha', { p_nome: nome, p_senha: senha, p_senha_padrao: 'meces123' });
+                } catch (rpcErr) {
+                    const m = (rpcErr.message || '');
+                    if (m.includes('login_ou_criar_coroinha') || m.includes('PGRST202') || m.includes('does not exist')) {
+                        rows = await API.rpc('login_coroinha', { p_nome: nome, p_senha: senha });
+                    } else { throw rpcErr; }
+                }
+
+                if (!rows || rows.length === 0) { showToast('Nome ou senha inválidos.', 'error'); document.getElementById('senhaCoroinhaLogin').value = ''; return; }
+
+                const c = rows[0];
+                const isNovo = c.novo === true;
+                localStorage.setItem('meces_token', c.token);
+                localStorage.removeItem('admin_token_meces');
+                coroinhaAtual = c; currentUser = c; isAdmin = false;
+                await entrarSistema();
+
+                if (isNovo) {
+                    showToast(`🎉 Conta criada! Bem-vindo(a), ${c.nome}.`, 'success');
+                    setTimeout(() => showToast('💡 Troque sua senha no botão "Senha" no topo.', 'info'), 1800);
+                }
+            } catch (e) {
+                console.error(e);
+                let msg = e.message || 'Erro';
+                try { const m = msg.match(/\{.*\}/); if (m) { const p = JSON.parse(m[0]); if (p.message) msg = p.message; } } catch (_) {}
+                if (msg.includes('Senha incorreta')) msg = 'Senha incorreta. Toque no olho 👁️ para conferir.';
+                else if (msg.includes('desativada')) msg = 'Sua conta está desativada. Fale com o coordenador.';
+                else if (msg.includes('4 caracteres') || msg.includes('curta')) msg = 'A senha precisa ter pelo menos 4 letras.';
+                else if (msg.includes('obrigatór') || msg.includes('Digite')) msg = msg.replace('Nome obrigatório', 'Digite seu nome.').replace('Senha obrigatória', 'Digite uma senha.');
+                showToast(msg, 'error');
+                document.getElementById('senhaCoroinhaLogin').value = '';
+            }
+        }
+
+        async function entrarSistema() {
+            document.getElementById('loginScreen').style.display = 'none';
+            document.getElementById('mainSystem').style.display = 'block';
+            const badge = document.getElementById('userBadge');
+            if (isAdmin) {
+                badge.innerHTML = '<i class="fas fa-lock"></i> Administrador';
+                badge.className = 'user-badge admin-badge';
+                document.getElementById('adminActions').style.display = 'block';
+                document.getElementById('adminNotificationBtn').style.display = 'block';
+            } else {
+                const numero = currentUser.numero ? `#${String(currentUser.numero).padStart(3, '0')}` : '';
+                badge.innerHTML = `<i class="fas fa-user"></i> ${escapeHtml(numero)} ${escapeHtml(currentUser.nome)}`;
+                badge.className = 'user-badge';
+                document.getElementById('adminActions').style.display = 'none';
+                document.getElementById('adminNotificationBtn').style.display = 'none';
+            }
+            await carregarPeriodoInscricao();
+            await renderizarLista();
+            if (isAdmin) await atualizarContadorSolicitacoes();
+            else await verificarNotificacoes();
+        }
+
+        async function logout() {
+            try {
+                const tok = getSessionToken();
+                if (tok) await fetch(`${SUPABASE_URL}/rest/v1/rpc/logout_coroinha`, { method: 'POST', headers: { ...buildHeaders() } }).catch(() => {});
+            } finally {
+                localStorage.removeItem('meces_token');
+                localStorage.removeItem('admin_token_meces');
+                currentUser = null; coroinhaAtual = null; isAdmin = false;
+                document.getElementById('loginScreen').style.display = 'flex';
+                document.getElementById('mainSystem').style.display = 'none';
+                ['dayModal','solicitacaoModal','listaSolicitacoesModal','viewScaleModal','gerenciarCoroinhasModal','alterarSenhaModal','gerenciarPeriodoModal','addManualModal'].forEach(id => document.getElementById(id).classList.remove('active'));
+                hideLoginForms();
+                document.getElementById('senhaAdmin').value = '';
+                document.getElementById('nomeCoroinhaLogin').value = '';
+                document.getElementById('senhaCoroinhaLogin').value = '';
+            }
+        }
+
+        async function renderizarLista() {
+            try {
+                if (!supabaseReady) return;
+                const list = document.getElementById('daysList');
+                const mes = currentDate.getMonth() + 1;
+                const ano = currentDate.getFullYear();
+                const hoje = new Date();
+                const hojeStr = hoje.toISOString().split('T')[0];
+                const diasNoMes = new Date(ano, mes, 0).getDate();
+                const [escalas, horarios, avisos] = await Promise.all([DB.getEscalas(mes, ano), DB.getHorarios(), DB.getAvisos()]);
+
+                const porDia = {};
+                escalas.forEach(e => {
+                    const k = e.data_escala;
+                    if (!porDia[k]) porDia[k] = { c: 0, p: 0, r: 0, total: 0 };
+                    if (e.status !== 'recusado') porDia[k].total++;
+                    if (e.status === 'confirmado') porDia[k].c++;
+                    else if (e.status === 'pendente') porDia[k].p++;
+                    else if (e.status === 'recusado') porDia[k].r++;
+                });
+                const avisosDia = {};
+                avisos.forEach(a => { if (!avisosDia[a.data_escala]) avisosDia[a.data_escala] = []; avisosDia[a.data_escala].push(a); });
+
+                const diasComMissa = new Set();
+                for (let d = 1; d <= diasNoMes; d++) {
+                    const dt = new Date(ano, mes - 1, d);
+                    const ds = ['domingo','segunda','terca','quarta','quinta','sexta','sabado'][dt.getDay()];
+                    if (horarios.some(h => h.dia_semana === ds)) diasComMissa.add(`${ano}-${String(mes).padStart(2,'0')}-${String(d).padStart(2,'0')}`);
+                }
+
+                const nomesDias = ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
+                let html = '';
+                for (let d = 1; d <= diasNoMes; d++) {
+                    const dt = new Date(ano, mes - 1, d);
+                    const dataStr = `${ano}-${String(mes).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+                    const isToday = dataStr === hojeStr;
+                    const info = porDia[dataStr] || { c: 0, p: 0, r: 0, total: 0 };
+                    const temMissa = diasComMissa.has(dataStr);
+                    const temAviso = avisosDia[dataStr] && avisosDia[dataStr].length > 0;
+                    const diaSemMissa = !temMissa;
+
+                    let badges = '';
+                    if (temAviso) badges += `<span class="badge badge-aviso"><i class="fas fa-bullhorn"></i> Aviso</span>`;
+                    if (info.c > 0) badges += `<span class="badge badge-confirmado"><i class="fas fa-check"></i> ${info.c}</span>`;
+                    if (info.p > 0) badges += `<span class="badge badge-pendente"><i class="fas fa-hourglass-half"></i> ${info.p}</span>`;
+                    if (info.r > 0) badges += `<span class="badge badge-pendente" style="background:var(--danger-soft); color:var(--danger); border-color:rgba(179,38,30,0.25);"><i class="fas fa-times"></i> ${info.r}</span>`;
+                    if (temMissa && info.total === 0) badges += `<span class="badge badge-missa"><i class="fas fa-church"></i> Missa</span>`;
+                    if (temMissa && info.total > 0) badges += `<span class="badge badge-count"><i class="fas fa-users"></i> ${info.total}</span>`;
+                    if (!temMissa && info.total === 0 && !temAviso) badges += `<span class="badge badge-vazio">—</span>`;
+
+                    html += `<div class="day-item ${isToday ? 'today' : ''} ${temMissa ? 'has-missa' : ''}" data-data="${dataStr}">
+                        <div class="day-info"><div class="day-number">${d}</div><div class="day-name">${nomesDias[dt.getDay()]}</div></div>
+                        <div class="day-badges">${badges}</div>
+                    </div>`;
+                }
+                list.innerHTML = html;
+                document.querySelectorAll('.day-item[data-data]').forEach(el => el.addEventListener('click', function() { abrirDia(this.dataset.data); }));
+                updateMonthDisplay();
+                if (isAdmin) await atualizarContadorSolicitacoes();
+            } catch (e) {
+                console.error(e);
+                document.getElementById('daysList').innerHTML = `<div class="empty-state"><i class="fas fa-exclamation-triangle"></i><p>Erro: ${escapeHtml(e.message)}</p></div>`;
+            }
+        }
+
+        function updateMonthDisplay() {
+            const m = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+            document.getElementById('currentMonth').textContent = `${m[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
+        }
+        async function prevMonth() {
+            const hoje = new Date();
+            if (new Date(currentDate.getFullYear(), currentDate.getMonth(), 1) <= new Date(hoje.getFullYear(), hoje.getMonth(), 1)) { showToast('Não pode ver meses anteriores!', 'error'); return; }
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            document.getElementById('viewScaleModal').classList.remove('active');
+            await renderizarLista();
+        }
+        async function nextMonth() {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            document.getElementById('viewScaleModal').classList.remove('active');
+            await renderizarLista();
+        }
+
+        async function abrirDia(dataStr) {
+            try {
+                if (!supabaseReady) return;
+                const modal = document.getElementById('dayModal');
+                const title = document.getElementById('modalDayTitle');
+                const content = document.getElementById('modalDayContent');
+                const [ano, mes, dia] = dataStr.split('-').map(Number);
+                const data = new Date(ano, mes - 1, dia);
+                const diaSemana = ['domingo','segunda','terca','quarta','quinta','sexta','sabado'][data.getDay()];
+                const nomeDia = ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'][data.getDay()];
+                title.innerHTML = `<i class="fas fa-calendar-alt"></i> ${nomeDia}, ${dia}/${mes}/${ano}`;
+                modal.dataset.date = dataStr;
+
+                const [horarios, escalas, avisos, coroinhas] = await Promise.all([
+                    DB.getHorarios(), DB.getEscalas(mes, ano), DB.getAvisos(dataStr), DB.getCoroinhas()
+                ]);
+                const mapaAcolitos = {};
+                coroinhas.forEach(c => { if (c.acolito) mapaAcolitos[String(c.id)] = true; });
+
+                const horariosDoDia = horarios.filter(h => h.dia_semana === diaSemana);
+                const escalasDoDia = escalas.filter(e => e.data_escala === dataStr);
+                const periodoAtivo = verificarPeriodoAtivo();
+                const cid = currentUser?.id;
+
+                let html = '';
+                if (horariosDoDia.length === 0) {
+                    html = `<div class="empty-state"><i class="fas fa-clock"></i><p>Nenhum horário de missa neste dia.</p></div>`;
+                } else {
+                    for (const h of horariosDoDia) {
+                        const aviso = avisos.find(a => a.horario === h.horario && (a.local || '') === (h.local || ''));
+                        const escs = escalasDoDia.filter(e => e.horario === h.horario && (e.local || '') === (h.local || ''));
+                        const conf = ordenarPorAcolito(escs.filter(e => e.status === 'confirmado'), mapaAcolitos);
+                        const pend = ordenarPorAcolito(escs.filter(e => e.status === 'pendente'), mapaAcolitos);
+                        const rec  = ordenarPorAcolito(escs.filter(e => e.status === 'recusado'), mapaAcolitos);
+
+                        const totalPessoas = conf.length + pend.length;
+                        const cheio = totalPessoas >= LIMITE_MISSA;
+
+                        let statusHtml = '', acoesHtml = '';
+
+                        const counterHtml = `<div class="missa-counter ${cheio ? 'full' : ''}">
+                            <i class="fas fa-users"></i>
+                            <span><span class="count-num">${totalPessoas}</span>/${LIMITE_MISSA} pessoa${totalPessoas === 1 ? '' : 's'}</span>
+                        </div>`;
+
+                        if (isAdmin) {
+                            if (aviso) acoesHtml += `<button class="btn btn-sm btn-danger" data-action="remover-aviso" data-id="${aviso.id}"><i class="fas fa-trash"></i> Remover Aviso</button>`;
+                            else acoesHtml += `<button class="btn btn-sm btn-warning" data-action="aviso" data-data="${dataStr}" data-horario="${escapeHtml(h.horario)}" data-local="${escapeHtml(h.local)}"><i class="fas fa-bullhorn"></i> Aviso</button>`;
+                            acoesHtml += `<button class="btn btn-sm btn-primary" data-action="add-manual" data-data="${dataStr}" data-horario="${escapeHtml(h.horario)}" data-local="${escapeHtml(h.local)}"><i class="fas fa-user-plus"></i> Adicionar</button>`;
+                            pend.forEach(p => {
+                                acoesHtml += `<button class="btn btn-sm btn-success" data-action="confirmar" data-id="${p.id}"><i class="fas fa-check"></i> ${iconeAcolito(mapaAcolitos, p.coroinha_id)}${escapeHtml(p.coroinha_nome)}</button>
+                                              <button class="btn btn-sm btn-danger" data-action="recusar" data-id="${p.id}"><i class="fas fa-times"></i></button>`;
+                            });
+                            if (conf.length) statusHtml += `<div class="status status-confirmado"><i class="fas fa-check-circle"></i> Confirmados: ${conf.map(e => iconeAcolito(mapaAcolitos, e.coroinha_id) + escapeHtml(e.coroinha_nome)).join(', ')}</div>`;
+                            if (rec.length) statusHtml += `<div class="status status-recusado"><i class="fas fa-times-circle"></i> Recusados: ${rec.map(e => escapeHtml(e.coroinha_nome)).join(', ')}</div>`;
+                            if (!conf.length && !pend.length && !rec.length) statusHtml = `<div class="status">Sem ministros</div>`;
+                        } else {
+                            const mConf = conf.find(e => String(e.coroinha_id) === String(cid));
+                            const mPend = pend.find(e => String(e.coroinha_id) === String(cid));
+                            const mRec  = rec.find(e => String(e.coroinha_id) === String(cid));
+                            if (aviso) statusHtml = `<div class="status" style="color:var(--accent-strong);"><i class="fas fa-bullhorn"></i> ${escapeHtml(aviso.mensagem)}</div>`;
+                            if (mConf) {
+                                statusHtml += `<div class="status status-confirmado"><i class="fas fa-check-circle"></i> Você está confirmado</div>`;
+                                acoesHtml += `<button class="btn btn-sm btn-danger" data-action="cancelar-confirmacao" data-id="${mConf.id}"><i class="fas fa-times"></i> Cancelar</button>
+                                              <button class="btn btn-sm btn-warning" data-action="solicitar-troca" data-id="${mConf.id}" data-data="${dataStr}" data-horario="${escapeHtml(h.horario)}" data-local="${escapeHtml(h.local)}"><i class="fas fa-exchange-alt"></i> Solicitar Troca</button>`;
+                            } else if (mPend) {
+                                statusHtml += `<div class="status status-pendente"><i class="fas fa-hourglass-half"></i> Aguardando confirmação</div>`;
+                                acoesHtml += `<button class="btn btn-sm btn-danger" data-action="cancelar-oferta" data-id="${mPend.id}"><i class="fas fa-times"></i> Cancelar oferta</button>`;
+                            } else if (mRec) {
+                                statusHtml += `<div class="status status-recusado"><i class="fas fa-times-circle"></i> Sua oferta foi recusada</div>`;
+                            } else {
+                                if (periodoAtivo && !aviso) {
+                                    if (cheio) {
+                                        statusHtml += `<div class="aviso-cheio">
+                                            <i class="fas fa-exclamation-triangle"></i>
+                                            <span><strong>Esta missa já está cheia (${totalPessoas}/${LIMITE_MISSA}).</strong><br>Mesmo assim, você pode se disponibilizar — caso alguém desista, você será chamado(a).</span>
+                                        </div>`;
+                                    } else {
+                                        statusHtml += `<div class="status">Vago · ${LIMITE_MISSA - totalPessoas} vaga${(LIMITE_MISSA - totalPessoas) === 1 ? '' : 's'} restante${(LIMITE_MISSA - totalPessoas) === 1 ? '' : 's'}</div>`;
+                                    }
+                                    acoesHtml += `<button class="btn btn-warning btn-lg" data-action="oferecer" data-data="${dataStr}" data-horario="${escapeHtml(h.horario)}" data-local="${escapeHtml(h.local)}"><i class="fas fa-hand-holding-heart"></i> Quero servir</button>`;
+                                } else if (!periodoAtivo) {
+                                    statusHtml += `<div class="status" style="color:var(--accent-strong);"><i class="fas fa-clock"></i> Inscrições encerradas</div>`;
+                                }
+                            }
+                        }
+
+                        html += `<div class="missa-item">
+                            <div class="missa-head">
+                                <div>
+                                    <div class="horario"><i class="far fa-clock"></i> ${escapeHtml(h.horario)}</div>
+                                    <div class="local"><i class="fas fa-church"></i> ${escapeHtml(h.local)}</div>
+                                </div>
+                                ${counterHtml}
+                            </div>
+                            ${statusHtml}
+                            <div class="missa-actions">${acoesHtml}</div>
+                        </div>`;
+                    }
+                }
+                if (isAdmin) html += `<div style="margin-top:16px;"><button class="btn btn-danger btn-lg" data-action="limpar-dia" data-data="${dataStr}"><i class="fas fa-trash"></i> Limpar todas as escalas do dia</button></div>`;
+                content.innerHTML = html;
+                content.querySelectorAll('[data-action]').forEach(btn => {
+                    btn.addEventListener('click', async function(ev) {
+                        ev.preventDefault();
+                        const a = this.dataset.action, id = this.dataset.id, d = this.dataset.data, ho = this.dataset.horario, lo = this.dataset.local;
+                        try {
+                            if (a === 'confirmar') await confirmarEscala(id);
+                            else if (a === 'recusar') await recusarEscala(id);
+                            else if (a === 'cancelar-confirmacao') await cancelarConfirmacao(id);
+                            else if (a === 'cancelar-oferta') await cancelarOferta(id);
+                            else if (a === 'oferecer') await oferecerCoroinha(d, ho, lo);
+                            else if (a === 'limpar-dia') await limparDia(d);
+                            else if (a === 'solicitar-troca') await abrirModalSolicitacao(id, d, ho, lo);
+                            else if (a === 'aviso') await criarAviso(d, ho, lo);
+                            else if (a === 'remover-aviso') await removerAviso(id);
+                            else if (a === 'add-manual') await abrirAddManual(d, ho, lo);
+                        } catch (err) { showToast('Erro: ' + err.message, 'error'); }
+                    });
+                });
+                modal.classList.add('active');
+            } catch (e) { showToast('Erro ao carregar dia: ' + e.message, 'error'); }
+        }
+        function closeDayModal() { document.getElementById('dayModal').classList.remove('active'); }
+
+        // ============================================================
+        // ADICIONAR MANUALMENTE — com caixa de texto (com sugestões)
+        // ============================================================
+        async function abrirAddManual(d, h, l) {
+            if (!isAdmin) return;
+            const [ano, mes] = d.split('-').map(Number);
+            const [coroinhas, escalas] = await Promise.all([DB.getCoroinhas(), DB.getEscalas(mes, ano)]);
+            const jaNaMissa = escalas
+                .filter(e => e.data_escala === d && e.horario === h && (e.local || '') === (l || '') && e.status !== 'recusado')
+                .map(e => String(e.coroinha_id));
+            const disponiveis = coroinhas.filter(c => c.ativo && !jaNaMissa.includes(String(c.id)));
+
+            const modal = document.getElementById('addManualModal');
+            const content = document.getElementById('addManualContent');
+
+            // Sugestões para o datalist
+            const sugestoes = disponiveis.map(c =>
+                `<option value="${escapeHtml(c.nome)}">${c.acolito ? '⭐ Acólito' : ''}${c.numero ? ' #' + String(c.numero).padStart(3, '0') : ''}</option>`
+            ).join('');
+
+            content.innerHTML = `
+                <div style="font-size:0.85rem; color:var(--accent-strong); margin-bottom:14px; padding:10px 12px; background:var(--accent-soft); border:1px solid var(--accent); border-radius:10px; font-weight:600;">
+                    📅 <strong>${d}</strong> às <strong>${escapeHtml(h)}</strong><br>
+                    <span style="font-size:0.8rem;">📍 ${escapeHtml(l || '—')}</span>
+                </div>
+
+                <div class="form-label">Nome do ministro</div>
+                <input
+                    type="text"
+                    id="addManualNome"
+                    class="form-input"
+                    placeholder="Digite o nome..."
+                    list="addManualSugestoes"
+                    autocomplete="off"
+                    maxlength="80"
+                >
+                <datalist id="addManualSugestoes">${sugestoes}</datalist>
+                <div class="form-hint">Toque no campo para ver sugestões, ou digite o nome livremente.</div>
+
+                <div class="form-label">Status na escala</div>
+                <select id="addManualStatus" class="form-input">
+                    <option value="confirmado">✅ Confirmado (já vale)</option>
+                    <option value="pendente">⏳ Pendente (aguardando)</option>
+                </select>
+                <div class="form-hint">O ministro entra na escala imediatamente. Ele verá a missa na lista dele.</div>
+
+                <button class="btn btn-warning btn-lg" id="btnConfirmAddManual" style="margin-top:8px;">
+                    <i class="fas fa-check"></i> Adicionar à escala
+                </button>
+            `;
+
+            // Foca no campo
+            setTimeout(() => {
+                const inp = document.getElementById('addManualNome');
+                if (inp) inp.focus();
+            }, 100);
+
+            // Enter confirma
+            document.getElementById('addManualNome').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    document.getElementById('btnConfirmAddManual').click();
+                }
+            });
+
+            document.getElementById('btnConfirmAddManual').addEventListener('click', async function() {
+                const input = document.getElementById('addManualNome');
+                const nomeDigitado = input.value.trim();
+                const status = document.getElementById('addManualStatus').value;
+
+                if (!nomeDigitado) {
+                    showToast('Digite o nome do ministro.', 'error');
+                    input.focus();
+                    return;
+                }
+
+                // Busca por nome (case-insensitive, ignora espaços extras)
+                const cs = await DB.getCoroinhas();
+                const enc = cs.find(c => c.nome.toLowerCase() === nomeDigitado.toLowerCase());
+
+                if (!enc) {
+                    showToast(`❌ "${nomeDigitado}" não encontrado. Confira o nome ou cadastre no Gerenciar.`, 'error');
+                    input.focus();
+                    input.select();
+                    return;
+                }
+
+                if (jaNaMissa.includes(String(enc.id))) {
+                    showToast(`⚠️ ${enc.nome} já está nesta missa.`, 'error');
+                    return;
+                }
+
+                if (!enc.ativo) {
+                    showToast(`⚠️ ${enc.nome} está desativado(a). Reative no Gerenciar.`, 'error');
+                    return;
+                }
+
+                try {
+                    await DB.createEscala({
+                        mes, ano, data_escala: d, horario: h, local: l,
+                        coroinha_id: enc.id, coroinha_nome: enc.nome,
+                        status, funcao: 'MECES'
+                    });
+                    showToast(`✅ ${enc.nome} adicionado(a) à escala!`, 'success');
+                    modal.classList.remove('active');
+                    await abrirDia(d);
+                    await renderizarLista();
+                } catch (err) {
+                    showToast('Erro: ' + err.message, 'error');
+                }
+            });
+
+            modal.classList.add('active');
+        }
+
+        async function criarAviso(d, h, l) {
+            if (!isAdmin) return showToast('Apenas admins.', 'error');
+            const ex = await DB.getAvisos(d, h, l);
+            if (ex.length) return showToast('Já existe aviso.', 'error');
+            await DB.createAviso({ data_escala: d, horario: h, local: l || '', mensagem: '⚠️ Escala à parte - Verificar grupo ⚠️' });
+            showToast('📢 Aviso criado!', 'success');
+            await recarregarModalEDados(d);
+        }
+        async function removerAviso(id) {
+            if (!isAdmin) return;
+            if (!confirm('Remover este aviso?')) return;
+            await DB.deleteAviso(id);
+            showToast('Aviso removido.', 'success');
+            await recarregarModalEDados();
+        }
+
+        async function oferecerCoroinha(d, h, l) {
+            if (!coroinhaAtual) return;
+            if (!verificarPeriodoAtivo()) return showToast('Inscrições encerradas!', 'error');
+            const [ano, mes] = d.split('-').map(Number);
+            const escs = await DB.getEscalas(mes, ano);
+            if (escs.find(e => e.data_escala === d && e.horario === h && (e.local || '') === (l || '') && String(e.coroinha_id) === String(coroinhaAtual.id)))
+                return showToast('Você já está nessa missa!', 'error');
+            await DB.createEscala({ mes, ano, data_escala: d, horario: h, local: l, coroinha_id: coroinhaAtual.id, coroinha_nome: coroinhaAtual.nome, status: 'pendente', funcao: 'MECES' });
+            showToast('Oferta registrada!', 'success');
+            await recarregarModalEDados(d);
+        }
+        async function cancelarOferta(id) { if (!confirm('Cancelar sua oferta?')) return; await DB.deleteEscala(id); showToast('Oferta cancelada.', 'success'); await recarregarModalEDados(); }
+        async function cancelarConfirmacao(id) { if (!confirm('Cancelar sua confirmação?')) return; await DB.deleteEscala(id); showToast('Confirmação cancelada.', 'success'); await recarregarModalEDados(); }
+        async function confirmarEscala(id) { if (!isAdmin) return; await DB.updateEscala(id, { status: 'confirmado' }); showToast('Escala confirmada!', 'success'); await recarregarModalEDados(); }
+        async function recusarEscala(id) { if (!isAdmin) return; if (!confirm('Recusar esta oferta?')) return; await DB.updateEscala(id, { status: 'recusado' }); showToast('Oferta recusada.', 'success'); await recarregarModalEDados(); }
+        async function limparDia(d) { if (!isAdmin) return; if (!confirm('Limpar todas as escalas deste dia?')) return; await DB.deleteEscalasByData(d); showToast('Dia limpo!', 'success'); await recarregarModalEDados(d); }
+        async function recarregarModalEDados(d) {
+            const atual = d || document.getElementById('dayModal').dataset.date;
+            if (atual) await abrirDia(atual);
+            await renderizarLista();
+            if (isAdmin) await atualizarContadorSolicitacoes();
+        }
+
+        async function abrirGerenciarCoroinhas() {
+            if (!isAdmin) return;
+            const modal = document.getElementById('gerenciarCoroinhasModal');
+            const content = document.getElementById('gerenciarCoroinhasContent');
+            const coroinhas = await DB.getCoroinhas();
+            let html = `
+                <div style="margin-bottom:12px; display:flex; gap:8px;">
+                    <input type="text" id="novoCoroinhaNome" class="form-input" placeholder="Nome do novo ministro" style="flex:1; margin:0;">
+                    <button class="btn btn-warning" id="btnAdicionarCoroinha"><i class="fas fa-plus"></i> Adicionar</button>
+                </div>
+                <div style="font-size:0.78rem; color:#7a5208; margin-bottom:12px; padding:10px 12px; background:var(--accent-soft); border:1px solid var(--accent); border-radius:var(--radius-xs); line-height:1.6; font-weight:600;">
+                    🔑 Senha padrão: <strong>meces123</strong><br>
+                    ⭐ Toque no botão dourado <i class="fas fa-hands-praying" style="color:var(--accent-strong);"></i> para marcar como <strong>Acólito Extraordinário</strong>.
+                </div>
+                <div class="escala-wrapper"><table class="escala-table">
+                    <thead><tr><th>Nº</th><th>Nome</th><th>Status</th><th>Ações</th></tr></thead>
+                    <tbody>`;
+            for (const c of coroinhas) {
+                const num = c.numero ? `#${String(c.numero).padStart(3, '0')}` : '---';
+                const badgeAcolito = c.acolito ? ' <span class="badge badge-acolito"><i class="fas fa-hands-praying"></i> Acólito</span>' : '';
+                html += `<tr>
+                    <td>${escapeHtml(num)}</td>
+                    <td>${escapeHtml(c.nome)}${badgeAcolito}</td>
+                    <td>${c.ativo ? '<span class="badge badge-confirmado">Ativo</span>' : '<span class="badge badge-vazio">Inativo</span>'}</td>
+                    <td>
+                        <button class="btn btn-sm ${c.acolito ? 'btn-warning' : 'btn-outline'}" data-id="${c.id}" data-action="toggle-acolito" title="${c.acolito ? 'Remover acólito' : 'Tornar Acólito Extraordinário'}"><i class="fas fa-hands-praying"></i></button>
+                        <button class="btn btn-sm btn-warning" data-id="${c.id}" data-action="resetar-senha" title="Resetar senha"><i class="fas fa-key"></i></button>
+                        <button class="btn btn-sm ${c.ativo ? 'btn-danger' : 'btn-success'}" data-id="${c.id}" data-action="toggle-ativo">${c.ativo ? '<i class="fas fa-user-slash"></i>' : '<i class="fas fa-user-check"></i>'}</button>
+                        <button class="btn btn-sm btn-danger" data-id="${c.id}" data-action="excluir"><i class="fas fa-user-times"></i></button>
+                    </td>
+                </tr>`;
+            }
+            html += `</tbody></table></div>`;
+            content.innerHTML = html;
+
+            document.getElementById('btnAdicionarCoroinha').addEventListener('click', async function() {
+                const nome = document.getElementById('novoCoroinhaNome').value.trim();
+                if (!nome) return showToast('Digite um nome!', 'error');
+                try {
+                    await API.rpc('admin_criar_coroinha', { p_nome: nome, p_senha: 'meces123' });
+                    showToast('Ministro criado! Senha padrão: meces123', 'success');
+                    await abrirGerenciarCoroinhas();
+                } catch (e) { showToast('Erro: ' + e.message, 'error'); }
+            });
+
+            content.querySelectorAll('[data-action]').forEach(btn => {
+                btn.addEventListener('click', async function() {
+                    const id = this.dataset.id, action = this.dataset.action;
+                    try {
+                        if (action === 'toggle-acolito') {
+                            const cs = await DB.getCoroinhas();
+                            const c = cs.find(x => x.id === id);
+                            if (!c) return;
+                            await DB.updateCoroinha(id, { acolito: !c.acolito });
+                            showToast(c.acolito ? '⭐ Removido de Acólito.' : '⭐ Marcado como Acólito!', 'success');
+                            await abrirGerenciarCoroinhas();
+                        } else if (action === 'resetar-senha') {
+                            if (!confirm('Redefinir senha para "meces123"?')) return;
+                            await API.rpc('admin_resetar_senha', { p_id: id, p_nova_senha: 'meces123' });
+                            showToast('Senha redefinida!', 'success');
+                            await abrirGerenciarCoroinhas();
+                        } else if (action === 'toggle-ativo') {
+                            const cs = await DB.getCoroinhas();
+                            const c = cs.find(x => x.id === id);
+                            if (!c) return;
+                            await DB.updateCoroinha(id, { ativo: !c.ativo });
+                            showToast(`Ministro ${!c.ativo ? 'ativado' : 'desativado'}!`, 'success');
+                            await abrirGerenciarCoroinhas();
+                        } else if (action === 'excluir') {
+                            if (!confirm('⚠️ Excluir PERMANENTEMENTE?')) return;
+                            await DB.deleteCoroinha(id);
+                            showToast('Ministro excluído!', 'success');
+                            await abrirGerenciarCoroinhas();
+                        }
+                    } catch (e) { showToast('Erro: ' + e.message, 'error'); }
+                });
+            });
+            modal.classList.add('active');
+        }
+
+        async function abrirGerenciarPeriodo() {
+            if (!isAdmin) return;
+            const modal = document.getElementById('gerenciarPeriodoModal');
+            const statusDiv = document.getElementById('statusPeriodo');
+            await carregarPeriodoInscricao();
+            const st = getStatusPeriodoTexto();
+            statusDiv.textContent = st.texto;
+            statusDiv.style.background = st.corBg;
+            statusDiv.style.color = st.corTexto;
+            if (periodoInscricao && periodoInscricao.inicio && periodoInscricao.fim) {
+                document.getElementById('periodoInicio').value = periodoInscricao.inicio;
+                document.getElementById('periodoFim').value = periodoInscricao.fim;
+            } else {
+                document.getElementById('periodoInicio').value = '';
+                document.getElementById('periodoFim').value = '';
+            }
+            modal.classList.add('active');
+        }
+        async function salvarPeriodo(e) {
+            e.preventDefault();
+            const ini = document.getElementById('periodoInicio').value;
+            const fim = document.getElementById('periodoFim').value;
+            if (!ini || !fim) return showToast('Preencha ambas as datas.', 'error');
+            if (new Date(ini) > new Date(fim)) return showToast('Início após fim.', 'error');
+            try {
+                await DB.upsertConfig('periodo_inscricao', { inicio: ini, fim });
+                await carregarPeriodoInscricao();
+                showToast('✅ Período salvo!', 'success');
+                document.getElementById('gerenciarPeriodoModal').classList.remove('active');
+                await renderizarLista();
+            } catch (e) { showToast('Erro: ' + e.message, 'error'); }
+        }
+        async function desativarPeriodo() {
+            if (!confirm('Desativar período?')) return;
+            try {
+                await DB.upsertConfig('periodo_inscricao', { inicio: null, fim: null });
+                await carregarPeriodoInscricao();
+                showToast('🔒 Desativado.', 'success');
+                document.getElementById('gerenciarPeriodoModal').classList.remove('active');
+                await renderizarLista();
+            } catch (e) { showToast('Erro: ' + e.message, 'error'); }
+        }
+
+        function abrirModalAlterarSenha() {
+            document.getElementById('alterarSenhaModal').classList.add('active');
+            document.getElementById('senhaAtual').value = '';
+            document.getElementById('novaSenha').value = '';
+            document.getElementById('confirmarSenha').value = '';
+            ['senhaAtual','novaSenha','confirmarSenha'].forEach(id => {
+                const inp = document.getElementById(id);
+                if (inp) inp.type = 'password';
+                const btn = document.querySelector(`.toggle-pwd[data-target="${id}"] i`);
+                if (btn) btn.className = 'fas fa-eye';
+            });
+            document.getElementById('senhaAtual').focus();
+        }
+        async function alterarSenha(e) {
+            e.preventDefault();
+            const sa = document.getElementById('senhaAtual').value;
+            const ns = document.getElementById('novaSenha').value;
+            const cf = document.getElementById('confirmarSenha').value;
+            if (!sa || !ns || !cf) return showToast('Preencha tudo.', 'error');
+            if (ns.length < 4) return showToast('Mínimo 4 caracteres.', 'error');
+            if (ns !== cf) return showToast('Senhas não coincidem.', 'error');
+            try {
+                const fn = isAdmin ? 'alterar_senha_admin' : 'alterar_senha_coroinha';
+                const res = await API.rpc(fn, { p_senha_atual: sa, p_nova_senha: ns });
+                let ok = false;
+                if (res === true) ok = true;
+                else if (Array.isArray(res) && res.length > 0) {
+                    const first = res[0];
+                    ok = (typeof first === 'boolean') ? first : (first && typeof first === 'object' && 'ok' in first) ? first.ok : true;
+                }
+                if (!ok) { showToast('❌ Senha atual incorreta.', 'error'); document.getElementById('senhaAtual').value = ''; document.getElementById('senhaAtual').focus(); return; }
+                showToast('✅ Senha alterada!', 'success');
+                document.getElementById('alterarSenhaModal').classList.remove('active');
+            } catch (err) {
+                console.error(err);
+                let msg = err.message || 'Erro.';
+                try { const m = msg.match(/\{.*\}/); if (m) { const p = JSON.parse(m[0]); if (p.message) msg = p.message; } } catch (_) {}
+                showToast('❌ ' + msg, 'error');
+            }
+        }
+
+        async function limparTudo() {
+            if (!isAdmin) return;
+            const mes = currentDate.getMonth() + 1;
+            const ano = currentDate.getFullYear();
+            if (!confirm(`⚠️ APAGAR TODAS as escalas de ${mes}/${ano}?`)) return;
+            const escs = await DB.getEscalas(mes, ano);
+            for (const e of escs) await DB.deleteEscala(e.id);
+            showToast(`🗑️ ${escs.length} escalas removidas.`, 'success');
+            await renderizarLista();
+        }
+
+        async function verRelatorio() {
+            if (!isAdmin) return;
+            const mes = currentDate.getMonth() + 1;
+            const ano = currentDate.getFullYear();
+            await abrirVisualizacaoEscalaCompleta(mes, ano);
+        }
+        async function abrirVisualizacaoEscalaCompleta(mes, ano) {
+            const [escalas, avisos, horarios, coroinhas] = await Promise.all([
+                DB.getEscalas(mes, ano), DB.getAllAvisos(), DB.getHorarios(), DB.getCoroinhas()
+            ]);
+            const mapaAcolitos = {};
+            coroinhas.forEach(c => { if (c.acolito) mapaAcolitos[String(c.id)] = true; });
+            const avisosMes = avisos.filter(a => { const [ay, am] = a.data_escala.split('-').map(Number); return am === mes && ay === ano; })
+                .sort((a, b) => a.data_escala.localeCompare(b.data_escala) || a.horario.localeCompare(b.horario));
+            const mesesNomes = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+            const diasDaSemana = ['domingo','segunda','terca','quarta','quinta','sexta','sabado'];
+            const diasMap = { domingo:'DOMINGOS', segunda:'SEGUNDA-FEIRA', terca:'TERÇA-FEIRA', quarta:'QUARTA-FEIRA', quinta:'QUINTA-FEIRA', sexta:'SEXTA-FEIRA', sabado:'SÁBADOS' };
+
+            let html = `<div class="escala-header">
+                <h2>📅 ESCALA MECES — ${mesesNomes[mes-1].toUpperCase()} DE ${ano}</h2>
+                <h3>PARÓQUIA SÃO BENEDITO E CAPELAS</h3>
+                <div class="obs-text">⚠️ CHEGAR COM 30 MINUTOS DE ANTECEDÊNCIA.</div>
+            </div>`;
+
+            html += `<div class="secao-titulo" style="margin-top:0;">📢 Avisos do Mês</div>`;
+            if (avisosMes.length) {
+                html += `<table class="avisos-table"><thead><tr><th>Data</th><th>Horário</th><th>Local</th><th>Mensagem</th></tr></thead><tbody>`;
+                for (const a of avisosMes) {
+                    const [ay, am, ad] = a.data_escala.split('-').map(Number);
+                    html += `<tr><td>${ad}/${am}/${ay}</td><td>${escapeHtml(a.horario)}</td><td class="aviso-local">${escapeHtml(a.local || '—')}</td><td>${escapeHtml(a.mensagem)}</td></tr>`;
+                }
+                html += `</tbody></table>`;
+            } else {
+                html += `<div style="text-align:center; color:var(--text-muted); padding:14px; font-style:italic;">Nenhum aviso.</div>`;
+            }
+
+            html += `<div class="escala-wrapper">`;
+            for (const dk of ['domingo','segunda','terca','quarta','quinta','sexta','sabado']) {
+                const hDia = horarios.filter(h => h.dia_semana === dk);
+                if (!hDia.length) continue;
+                const dnm = new Date(ano, mes, 0).getDate();
+                const datas = [];
+                for (let d = 1; d <= dnm; d++) {
+                    if (diasDaSemana[new Date(ano, mes-1, d).getDay()] === dk)
+                        datas.push({ data: `${ano}-${String(mes).padStart(2,'0')}-${String(d).padStart(2,'0')}`, dia: d });
+                }
+                if (!datas.length) continue;
+                html += `<div class="secao-titulo">📍 ${diasMap[dk]}</div>`;
+                const locais = {};
+                hDia.forEach(h => { if (!locais[h.local]) locais[h.local] = []; locais[h.local].push(h); });
+                for (const loc of Object.keys(locais)) {
+                    const hs = [...new Set(locais[loc].map(h => h.horario))].sort();
+                    html += `<div class="secao-subtitulo">${escapeHtml(loc)}</div>`;
+                    html += `<table class="escala-table"><thead><tr><th>DATA</th>${hs.map(h => `<th>${escapeHtml(h)}</th>`).join('')}</tr></thead><tbody>`;
+                    for (const di of datas) {
+                        const escsD = escalas.filter(e => e.data_escala === di.data);
+                        html += `<tr><td><strong>${di.dia}° — ${di.dia}/${mes}/${ano}</strong></td>`;
+                        for (const hh of hs) {
+                            const eh = ordenarPorAcolito(escsD.filter(e => e.horario === hh && e.local === loc), mapaAcolitos);
+                            html += `<td>`;
+                            if (eh.length) {
+                                eh.forEach(e => {
+                                    const n = e.coroinha_nome || 'Desconhecido';
+                                    let cls = '', tag = '';
+                                    if (e.status === 'pendente') { cls = 'pendente'; tag = ' (pendente)'; }
+                                    else if (e.status === 'recusado') { cls = 'recusado'; tag = ' (recusado)'; }
+                                    html += `<span class="nome ${cls}">${iconeAcolito(mapaAcolitos, e.coroinha_id)}${escapeHtml(n)}${tag}</span>`;
+                                });
+                            } else html += `<span class="sem-coroinhas">Sem ministros</span>`;
+                            html += `</td>`;
+                        }
+                        html += `</tr>`;
+                    }
+                    html += `</tbody></table>`;
+                }
+            }
+            html += `</div>`;
+            document.getElementById('viewScaleContent').innerHTML = html;
+            document.getElementById('viewScaleModal').classList.add('active');
+        }
+
+        async function abrirModalSolicitacao(escalaId, d, h, l) {
+            if (!coroinhaAtual) return;
+            const modal = document.getElementById('solicitacaoModal');
+            document.getElementById('solicitacaoModalContent').innerHTML = `
+                <form id="formSolicitacao">
+                    <input type="hidden" id="solicitacaoEscalaId" value="${escalaId}">
+                    <div class="form-label">Substituto (opcional)</div>
+                    <input type="text" id="substitutoInput" class="form-input" placeholder="Nome do substituto" maxlength="80">
+                    <div class="form-hint">Deixe em branco se não tiver substituto.</div>
+                    <div class="form-label">Justificativa (opcional)</div>
+                    <textarea id="solicitacaoJustificativa" class="form-textarea" placeholder="Motivo..." maxlength="500"></textarea>
+                    <button type="submit" class="btn btn-warning btn-lg" style="margin-top:14px;"><i class="fas fa-paper-plane"></i> Enviar</button>
+                </form>`;
+            modal.classList.add('active');
+            document.getElementById('formSolicitacao').addEventListener('submit', async function(e) { e.preventDefault(); await enviarSolicitacao(); });
+        }
+        async function enviarSolicitacao() {
+            const escalaId = document.getElementById('solicitacaoEscalaId').value;
+            const subNome = document.getElementById('substitutoInput').value.trim();
+            const just = document.getElementById('solicitacaoJustificativa').value.trim();
+            let subId = null;
+            if (subNome) {
+                const cs = await DB.getCoroinhas();
+                const enc = cs.find(c => c.nome.toLowerCase() === subNome.toLowerCase());
+                if (enc) subId = enc.id;
+            }
+            await DB.createSolicitacao({
+                escala_id: escalaId, solicitante_id: coroinhaAtual.id, solicitante_nome: coroinhaAtual.nome,
+                substituto_id: subId, substituto_nome: subNome || null, justificativa: just || null, status: 'pendente'
+            });
+            showToast('✅ Solicitação enviada!', 'success');
+            document.getElementById('solicitacaoModal').classList.remove('active');
+            await recarregarModalEDados();
+        }
+
+        async function abrirListaSolicitacoes() {
+            if (!isAdmin) return;
+            const modal = document.getElementById('listaSolicitacoesModal');
+            const content = document.getElementById('listaSolicitacoesContent');
+            const sols = await DB.getSolicitacoes('pendente');
+            if (!sols.length) {
+                content.innerHTML = `<div class="empty-state"><i class="fas fa-check-circle"></i><p>Nenhuma solicitação pendente.</p></div>`;
+            } else {
+                let html = '';
+                for (const s of sols) {
+                    const esc = await API.get('escalas', { id: s.escala_id });
+                    const eD = esc.length ? esc[0] : null;
+                    const info = eD ? `${eD.data_escala} às ${eD.horario} - ${eD.local || ''}` : 'Dados indisponíveis';
+                    html += `<div class="solicitacao-item">
+                        <div class="solicitante"><i class="fas fa-user"></i> <strong>${escapeHtml(s.solicitante_nome)}</strong> quer trocar</div>
+                        <div class="substituto"><i class="fas fa-user-plus"></i> Substituto: <strong>${escapeHtml(s.substituto_nome || 'Não informado')}</strong></div>
+                        <div class="justificativa">${s.justificativa ? '📝 ' + escapeHtml(s.justificativa) : ''}</div>
+                        <div style="font-size:0.8rem; color:var(--text-muted); margin:6px 0;">📅 ${escapeHtml(info)}</div>
+                        <div class="solicitacao-actions">
+                            <button class="btn btn-success" data-acao="aceitar" data-id="${s.id}"><i class="fas fa-check"></i> Aceitar</button>
+                            <button class="btn btn-danger" data-acao="recusar" data-id="${s.id}"><i class="fas fa-times"></i> Recusar</button>
+                        </div>
+                    </div>`;
+                }
+                content.innerHTML = html;
+                content.querySelectorAll('[data-acao]').forEach(b => b.addEventListener('click', async function() {
+                    if (this.dataset.acao === 'aceitar') await aceitarTroca(this.dataset.id);
+                    else await recusarTroca(this.dataset.id);
+                }));
+            }
+            modal.classList.add('active');
+        }
+        async function aceitarTroca(id) {
+            if (!confirm('Aceitar esta solicitação?')) return;
+            const sols = await DB.getSolicitacoes();
+            const sol = sols.find(s => s.id === parseInt(id));
+            if (!sol) return;
+            const esc = await API.get('escalas', { id: sol.escala_id });
+            const eo = esc.length ? esc[0] : null;
+            if (!eo) return showToast('Escala não encontrada.', 'error');
+            await DB.updateEscala(eo.id, { coroinha_id: null, coroinha_nome: null, status: 'pendente' });
+            await DB.updateSolicitacao(sol.id, { status: 'aprovado', data_resposta: new Date().toISOString() });
+            await DB.createNotificacao({ usuario_id: sol.solicitante_id, mensagem: `✅ Sua troca para ${eo.data_escala} foi aceita.` });
+            showToast('✅ Troca aprovada!', 'success');
+            await abrirListaSolicitacoes(); await renderizarLista(); await atualizarContadorSolicitacoes();
+        }
+        async function recusarTroca(id) {
+            if (!confirm('Recusar?')) return;
+            const sols = await DB.getSolicitacoes();
+            const sol = sols.find(s => s.id === parseInt(id));
+            if (!sol) return;
+            await DB.updateSolicitacao(sol.id, { status: 'recusado', data_resposta: new Date().toISOString() });
+            await DB.createNotificacao({ usuario_id: sol.solicitante_id, mensagem: `❌ Sua troca foi recusada.` });
+            showToast('Recusada.', 'success');
+            await abrirListaSolicitacoes(); await atualizarContadorSolicitacoes();
+        }
+        async function atualizarContadorSolicitacoes() {
+            if (!isAdmin) return;
+            try { const s = await DB.getSolicitacoes('pendente'); document.getElementById('solicitacoesCount').textContent = s.length; } catch (e) {}
+        }
+
+        function showToast(msg, type = 'success') {
+            const c = document.getElementById('toastContainer');
+            const t = document.createElement('div');
+            t.className = `toast ${type}`;
+            const ic = type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle';
+            t.innerHTML = `<i class="fas ${ic}"></i> <span>${escapeHtml(msg)}</span>`;
+            c.appendChild(t);
+            setTimeout(() => { t.style.opacity = '0'; t.style.transform = 'translateY(-10px)'; t.style.transition = 'all 0.3s ease'; setTimeout(() => t.remove(), 300); }, 3000);
+        }
+
+        document.addEventListener('DOMContentLoaded', async function() {
+            document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+            document.querySelectorAll('.login-btn').forEach(b => b.disabled = true);
+            await testConnection();
+
+            document.getElementById('btnAdminLogin').addEventListener('click', showAdminLogin);
+            document.getElementById('btnCoroinhaLogin').addEventListener('click', showCoroinhaLogin);
+            document.getElementById('btnLoginAdmin').addEventListener('click', loginAdmin);
+            document.getElementById('btnLoginCoroinha').addEventListener('click', loginCoroinha);
+            document.getElementById('btnCancelAdmin').addEventListener('click', hideLoginForms);
+            document.getElementById('btnCancelCoroinha').addEventListener('click', hideLoginForms);
+
+            document.getElementById('btnLogout').addEventListener('click', logout);
+            document.getElementById('prevMonth').addEventListener('click', prevMonth);
+            document.getElementById('nextMonth').addEventListener('click', nextMonth);
+            document.getElementById('gerarRelatorioBtn').addEventListener('click', verRelatorio);
+            document.getElementById('limparTudoBtn').addEventListener('click', limparTudo);
+            document.getElementById('gerenciarCoroinhasBtn').addEventListener('click', abrirGerenciarCoroinhas);
+            document.getElementById('gerenciarCoroinhasModalClose').addEventListener('click', () => document.getElementById('gerenciarCoroinhasModal').classList.remove('active'));
+
+            document.getElementById('gerenciarPeriodoBtn').addEventListener('click', abrirGerenciarPeriodo);
+            document.getElementById('gerenciarPeriodoModalClose').addEventListener('click', () => document.getElementById('gerenciarPeriodoModal').classList.remove('active'));
+            document.getElementById('gerenciarPeriodoModal').addEventListener('click', function(e) { if (e.target === this) this.classList.remove('active'); });
+            document.getElementById('formPeriodo').addEventListener('submit', salvarPeriodo);
+            document.getElementById('btnDesativarPeriodo').addEventListener('click', desativarPeriodo);
+
+            document.getElementById('btnAlterarSenha').addEventListener('click', abrirModalAlterarSenha);
+            document.getElementById('alterarSenhaModalClose').addEventListener('click', () => document.getElementById('alterarSenhaModal').classList.remove('active'));
+            document.getElementById('alterarSenhaModal').addEventListener('click', function(e) { if (e.target === this) this.classList.remove('active'); });
+            document.getElementById('formAlterarSenha').addEventListener('submit', alterarSenha);
+
+            document.getElementById('modalCloseBtn').addEventListener('click', closeDayModal);
+            document.getElementById('solicitacaoModalClose').addEventListener('click', () => document.getElementById('solicitacaoModal').classList.remove('active'));
+            document.getElementById('listaSolicitacoesModalClose').addEventListener('click', () => document.getElementById('listaSolicitacoesModal').classList.remove('active'));
+            document.getElementById('viewScaleModalClose').addEventListener('click', () => document.getElementById('viewScaleModal').classList.remove('active'));
+            document.getElementById('closeViewScaleBtn').addEventListener('click', () => document.getElementById('viewScaleModal').classList.remove('active'));
+            document.getElementById('addManualModalClose').addEventListener('click', () => document.getElementById('addManualModal').classList.remove('active'));
+
+            document.getElementById('printScaleBtn').addEventListener('click', function() {
+                const content = document.getElementById('viewScaleContent').innerHTML;
+                const mes = currentDate.getMonth() + 1;
+                const ano = currentDate.getFullYear();
+                const win = window.open('', '_blank');
+                win.document.write(`<html><head><title>Escala MECES ${mes}/${ano}</title><style>
+                    body { font-family: 'Inter', sans-serif; padding: 20px; max-width: 1100px; margin: 0 auto; color: #16283d; }
+                    table { width:100%; border-collapse:collapse; margin:16px 0; }
+                    th, td { padding:6px 8px; border:1px solid #ccc; vertical-align:top; font-size:12px; }
+                    th { background:#faf1d6; }
+                    .escala-header h2, .escala-header h3 { text-align:center; margin:4px 0; }
+                    .escala-header .obs-text { text-align:center; color:#7a5208; font-size:11px; margin-top:6px; }
+                    .nome.pendente { color:#c9841a; font-style:italic; }
+                    .nome.recusado { color:#b3261e; text-decoration:line-through; }
+                    .secao-titulo { font-size:14px; font-weight:bold; margin-top:20px; border-bottom:2px solid #c9a227; padding-bottom:4px; color:#1e3a5f; }
+                    .secao-subtitulo { font-size:12px; font-weight:600; color:#7a5208; margin:8px 0 4px; }
+                </style></head><body>${content}</body></html>`);
+                win.document.close();
+                setTimeout(() => win.print(), 500);
+            });
+
+            document.getElementById('btnVerSolicitacoes').addEventListener('click', abrirListaSolicitacoes);
+
+            ['dayModal','solicitacaoModal','listaSolicitacoesModal','viewScaleModal','gerenciarCoroinhasModal','addManualModal'].forEach(id => {
+                document.getElementById(id).addEventListener('click', function(e) { if (e.target === this) this.classList.remove('active'); });
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    ['dayModal','solicitacaoModal','listaSolicitacoesModal','viewScaleModal','gerenciarCoroinhasModal','alterarSenhaModal','gerenciarPeriodoModal','addManualModal'].forEach(id => document.getElementById(id).classList.remove('active'));
+                }
+            });
+            document.getElementById('senhaAdmin').addEventListener('keypress', e => { if (e.key === 'Enter') loginAdmin(); });
+            document.getElementById('nomeCoroinhaLogin').addEventListener('keypress', e => { if (e.key === 'Enter') loginCoroinha(); });
+            document.getElementById('senhaCoroinhaLogin').addEventListener('keypress', e => { if (e.key === 'Enter') loginCoroinha(); });
+
+            updateMonthDisplay();
+        });
+    </script>
+</body>
+</html>
